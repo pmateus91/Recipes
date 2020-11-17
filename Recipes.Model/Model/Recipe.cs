@@ -12,14 +12,14 @@ namespace Recipes.Model.Model
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public TimeSpan Time { get; set; }
-        public Difficulty Dificulty { get; set; } //enum
+        public TimeSpan Duration { get; set; }
+        public Difficulty Difficulty { get; set; } //enum
         public Rating Rating { get; set; } //enum
-        public string Description { get; set; }
+        public string Instructions { get; set; }
         public bool Status { get; set; }
-        public List<Category> Category { get; set; }
         public User User { get; set; }
+        public List<Category> Category { get; set; }
         public List<Comment> Comment { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public List<Ingredient> Ingredient { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace Recipes.Model.Model
         public string Email { get; set; }
         public string Address { get; set; }
         public bool IsAdmin { get; set; }
+        public bool IsBlocked { get; set; }
         public Account Account { get; set; }
         public List<Recipe> OwnRecipes { get; set; }
         public List<Recipe> FavoriteRecipes { get; set; }
