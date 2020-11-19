@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Recepies.WinForms
+namespace Recipes.WinForms
 {
-    public partial class FrmUpdateBlockDelete : Form
+    public partial class FrmUser_UpdateBlockDelete : Form
     {
         string _titulo;
-        public FrmUpdateBlockDelete(string titulo)
+        public FrmUser_UpdateBlockDelete(string titulo)
         {
             InitializeComponent();
             _titulo = titulo;
         }
-        FrmInsertUser Iu;
+        FrmUser_Insert Iu;
         private void FrmUpdateBlockDelete_Load(object sender, EventArgs e)
         {
             if (_titulo == "Alterar")
@@ -57,8 +57,8 @@ namespace Recepies.WinForms
         {
             if (gvResult.Rows.Count > 0)
             {                
-                if (Application.OpenForms.OfType<FrmInsertUser>().Count() == 0)
-                    Iu = new FrmInsertUser();
+                if (Application.OpenForms.OfType<FrmUser_Insert>().Count() == 0)
+                    Iu = new FrmUser_Insert();
                 //Iu.MdiParent = this;
                 Iu.ShowDialog();
                 Iu.BringToFront();

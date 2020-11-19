@@ -5,23 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recepies.Data.Repositories
+namespace Recipes.Data.Repositories
 {
-    class IngredientRepository
+    public class CommentsRepository
     {
-        public List<Ingredient> GetALL()
+        public List<Comment> GetALL()
         {
             return null;
         }
-        public Ingredient GetById(int id)
+        public List<Comment> GetById(int id)
         {
             return null;
         }
-        public void Add(Ingredient ingredient)
+        public void Add(Comment commentary)
         {
 
         }
-        public void Update(Ingredient ingredient)
+        public void Update(Comment commentary)
         {
 
         }

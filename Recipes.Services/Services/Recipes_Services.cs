@@ -9,14 +9,14 @@ using System.Data;
 
 namespace Recipes.Services.Services
 {
-    public class RecipeServices
+    public class Recipes_Services
     {
 
-        private RecipeRepository _repo;
+        private RecipesRepository _repo;
 
-        public RecipeServices()
+        public Recipes_Services()
         {
-            _repo = new RecipeRepository();
+            _repo = new RecipesRepository();
         }
 
         // Criar validações necessárias (regras de negócio)
@@ -25,6 +25,13 @@ namespace Recipes.Services.Services
         {
             return _repo.GetALL();             
         }
+
+        public List<productTeste> GetAllProducts()
+        {
+            return _repo.GetAllProducts();
+        }
+
+
 
         public Recipe GetById(int id)
         {

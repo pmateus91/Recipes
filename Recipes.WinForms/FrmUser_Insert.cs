@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Recepies.WinForms
+namespace Recipes.WinForms
 {
-    public partial class FrmComents : Form
+    public partial class FrmUser_Insert : Form
     {
-        public FrmComents()
+        public FrmUser_Insert()
         {
             InitializeComponent();
         }
+
+
     }
 }

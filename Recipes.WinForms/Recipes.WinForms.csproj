@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F4B986A6-F196-4214-9555-09432FF51436}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Recepies.WinForms</RootNamespace>
-    <AssemblyName>Recepies.WinForms</AssemblyName>
+    <RootNamespace>Recipes.WinForms</RootNamespace>
+    <AssemblyName>Recipes.WinForms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MLibrary">
+      <HintPath>..\..\Doc's\MLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,11 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmInsertUser.cs">
+    <Compile Include="FrmComments_Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInsertUser.Designer.cs">
-      <DependentUpon>FrmInsertUser.cs</DependentUpon>
+    <Compile Include="FrmComments_Update.Designer.cs">
+      <DependentUpon>FrmComments_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategories_InsertUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategories_InsertUpdate.Designer.cs">
+      <DependentUpon>FrmCategories_InsertUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIngredients_InsertUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngredients_InsertUpdate.Designer.cs">
+      <DependentUpon>FrmIngredients_InsertUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUser_Insert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUser_Insert.Designer.cs">
+      <DependentUpon>FrmUser_Insert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecipesDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecipesDetails.Designer.cs">
+      <DependentUpon>FrmRecipesDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTime.cs">
       <SubType>Form</SubType>
@@ -58,11 +85,11 @@
     <Compile Include="FrmTime.Designer.cs">
       <DependentUpon>FrmTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmComents.cs">
+    <Compile Include="FrmComments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmComents.Designer.cs">
-      <DependentUpon>FrmComents.cs</DependentUpon>
+    <Compile Include="FrmComments.Designer.cs">
+      <DependentUpon>FrmComments.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -88,22 +115,34 @@
     <Compile Include="FrmRecipes.Designer.cs">
       <DependentUpon>FrmRecipes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUpdateBlockDelete.cs">
+    <Compile Include="FrmUser_UpdateBlockDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUpdateBlockDelete.Designer.cs">
-      <DependentUpon>FrmUpdateBlockDelete.cs</DependentUpon>
+    <Compile Include="FrmUser_UpdateBlockDelete.Designer.cs">
+      <DependentUpon>FrmUser_UpdateBlockDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmInsertUser.resx">
-      <DependentUpon>FrmInsertUser.cs</DependentUpon>
+    <EmbeddedResource Include="FrmComments_Update.resx">
+      <DependentUpon>FrmComments_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategories_InsertUpdate.resx">
+      <DependentUpon>FrmCategories_InsertUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngredients_InsertUpdate.resx">
+      <DependentUpon>FrmIngredients_InsertUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUser_Insert.resx">
+      <DependentUpon>FrmUser_Insert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecipesDetails.resx">
+      <DependentUpon>FrmRecipesDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTime.resx">
       <DependentUpon>FrmTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmComents.resx">
-      <DependentUpon>FrmComents.cs</DependentUpon>
+    <EmbeddedResource Include="FrmComments.resx">
+      <DependentUpon>FrmComments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -117,8 +156,8 @@
     <EmbeddedResource Include="FrmRecipes.resx">
       <DependentUpon>FrmRecipes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUpdateBlockDelete.resx">
-      <DependentUpon>FrmUpdateBlockDelete.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUser_UpdateBlockDelete.resx">
+      <DependentUpon>FrmUser_UpdateBlockDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,6 +208,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\patient_boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Recipes.Data\Recipes.Data.csproj">
+      <Project>{2daf9031-bef5-45ed-9dfa-ab4f7df5f961}</Project>
+      <Name>Recipes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Recipes.Model\Recipes.Model.csproj">
+      <Project>{3D41BAB6-DFBE-4129-A5B0-EB7BD8F171FD}</Project>
+      <Name>Recipes.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Recipes.Services\Recipes.Services.csproj">
+      <Project>{58ab3121-fe67-446a-9113-5291649352d5}</Project>
+      <Name>Recipes.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

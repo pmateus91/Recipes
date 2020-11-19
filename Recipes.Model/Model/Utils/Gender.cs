@@ -8,7 +8,7 @@ namespace Recipes.Model.Model.Utils
 {
     public enum Gender : byte //tinyint
     {
-        Not known = 0,
+        Notknown = 0,
         Male = 1,
         Female = 2,
         NotApplicable = 9            

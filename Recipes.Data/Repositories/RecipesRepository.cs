@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Recipes.Data.Repositories
 {
-    public class RecipeRepository
+    public class RecipesRepository
     {
         // Código ADO.NET
         public List<Recipe> GetALL()
@@ -23,10 +23,10 @@ namespace Recipes.Data.Repositories
                 //SqlCommand cmd = conn.CreateCommand();
                 //cmd.CommandText = "spSearchRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
-                
+
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                
+
                 while (dr.Read())
                 {
                     Recipe Recipe = new Recipe()
@@ -40,6 +40,33 @@ namespace Recipes.Data.Repositories
                         Status = dr.GetBoolean(6)
                     };
                     temp.Add(Recipe);
+                }
+                conn.Close();
+            }
+            
+            return temp;
+        }
+        public List<productTeste> GetAllProducts()
+        {
+            List<productTeste> temp = new List<productTeste>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
+            {
+                SqlCommand cmd = new SqlCommand("uspGetAll", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    productTeste product = new productTeste()
+                    {
+                        productID = Convert.ToInt32(dr["ProductID"].ToString()),
+                        supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
+                        productName = dr["ProductName"].ToString(),
+                        categoryId = Convert.ToInt32( dr["CategoryID"].ToString())
+                    };
+                    temp.Add(product);
                 }
             }
             return temp;
@@ -109,11 +136,11 @@ namespace Recipes.Data.Repositories
                 cmd.Parameters.AddWithValue("@Difficulty", recipe.Difficulty);
                 cmd.Parameters.AddWithValue("@Instructions", recipe.Instructions);
                 cmd.Parameters.AddWithValue("@Status", recipe.Status);
-                                
+
                 conn.Open();
 
                 int affectedRows = cmd.ExecuteNonQuery();
-                
+
                 if (affectedRows != 1)
                 {
                     throw new Exception("Não foi possivel alterar os dados");

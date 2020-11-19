@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MLibrary">
+      <HintPath>..\..\..\MLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +48,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Ingredient.cs" />
+    <Compile Include="Model\productTeste.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Utils\Difficulty.cs" />
@@ -52,6 +56,5 @@
     <Compile Include="Model\Utils\Rating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

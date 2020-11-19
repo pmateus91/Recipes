@@ -1,4 +1,4 @@
-﻿namespace Recepies.WinForms
+﻿namespace Recipes.WinForms
 {
     partial class FrmMain
     {
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Recepies.WinForms.Properties.Resources.logo_30per;
+            this.BackgroundImage = global::Recipes.WinForms.Properties.Resources.logo_30per;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.menuStrip);
@@ -237,7 +237,6 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receitas - Manutenção";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

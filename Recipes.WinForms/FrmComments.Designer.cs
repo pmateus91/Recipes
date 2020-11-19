@@ -1,6 +1,6 @@
-﻿namespace Recepies.WinForms
+﻿namespace Recipes.WinForms
 {
-    partial class FrmComents
+    partial class FrmComments
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gvResultComents = new System.Windows.Forms.DataGridView();
             this.btDelete = new System.Windows.Forms.Button();
             this.btUpdate = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gvResultComents)).BeginInit();
+            this.gvResultComments = new System.Windows.Forms.DataGridView();
+            this.lblTitle = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.gvResultComments)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gvResultComents
-            // 
-            this.gvResultComents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvResultComents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvResultComents.Location = new System.Drawing.Point(12, 46);
-            this.gvResultComents.Name = "gvResultComents";
-            this.gvResultComents.Size = new System.Drawing.Size(870, 671);
-            this.gvResultComents.TabIndex = 0;
             // 
             // btDelete
             // 
             this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.Image = global::Recepies.WinForms.Properties.Resources.delete;
-            this.btDelete.Location = new System.Drawing.Point(889, 102);
+            this.btDelete.Image = global::Recipes.WinForms.Properties.Resources.delete;
+            this.btDelete.Location = new System.Drawing.Point(889, 117);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(107, 52);
             this.btDelete.TabIndex = 1;
@@ -63,8 +52,8 @@
             // 
             this.btUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdate.Image = global::Recepies.WinForms.Properties.Resources.track_changes;
-            this.btUpdate.Location = new System.Drawing.Point(889, 46);
+            this.btUpdate.Image = global::Recipes.WinForms.Properties.Resources.track_changes;
+            this.btUpdate.Location = new System.Drawing.Point(889, 61);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(107, 50);
             this.btUpdate.TabIndex = 1;
@@ -72,40 +61,56 @@
             this.btUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btUpdate.UseVisualStyleBackColor = true;
             // 
-            // lblTitulo
+            // gvResultComments
             // 
-            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Rockwell Extra Bold", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(335, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(199, 28);
-            this.lblTitulo.TabIndex = 3;
-            this.lblTitulo.Text = "Comentários";
+            this.gvResultComments.AllowUserToAddRows = false;
+            this.gvResultComments.AllowUserToDeleteRows = false;
+            this.gvResultComments.AllowUserToResizeRows = false;
+            this.gvResultComments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gvResultComments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvResultComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvResultComments.Location = new System.Drawing.Point(12, 61);
+            this.gvResultComments.MultiSelect = false;
+            this.gvResultComments.Name = "gvResultComments";
+            this.gvResultComments.ReadOnly = true;
+            this.gvResultComments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvResultComments.Size = new System.Drawing.Size(871, 656);
+            this.gvResultComments.TabIndex = 4;
             // 
-            // FrmComents
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(-7, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1022, 38);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "――――――   COMENTÁRIOS   ――――――";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FrmComments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.gvResultComments);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btUpdate);
-            this.Controls.Add(this.gvResultComents);
-            this.Name = "FrmComents";
+            this.Name = "FrmComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comentários";
-            ((System.ComponentModel.ISupportInitialize)(this.gvResultComents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvResultComments)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView gvResultComents;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btDelete;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.DataGridView gvResultComments;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

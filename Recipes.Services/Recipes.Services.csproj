@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\RecipeServices.cs" />
+    <Compile Include="Services\Categories_Services.cs" />
+    <Compile Include="Services\Comments_Services.cs" />
+    <Compile Include="Services\Ingredients_Services.cs" />
+    <Compile Include="Services\Recipes_Services.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Recipes.Data\Recipes.Data.csproj">

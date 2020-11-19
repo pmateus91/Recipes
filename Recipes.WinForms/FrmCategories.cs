@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Recepies.WinForms
+namespace Recipes.WinForms
 {
     public partial class FrmCategories : Form
     {

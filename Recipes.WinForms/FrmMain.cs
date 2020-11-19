@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Recepies.WinForms
+namespace Recipes.WinForms
 {
     public partial class FrmMain : Form
     {
+        private bool closeSentinel = false;
         public FrmMain()
         {
             InitializeComponent();
@@ -19,10 +20,12 @@ namespace Recepies.WinForms
         FrmRecipes R;
         FrmIngredients I;
         FrmCategories Ca;
-        FrmComents Co;
+        FrmComments Co;
         FrmTime T;
-        FrmInsertUser Iu;
-        FrmUpdateBlockDelete Ubd;
+        FrmUser_Insert Iu;
+        FrmUser_UpdateBlockDelete Ubd;
+
+        #region Consultar
 
         private void receitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,26 +45,7 @@ namespace Recepies.WinForms
             I.WindowState = FormWindowState.Maximized;
             I.Show();
             I.BringToFront();
-        }
-
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            this.Close();
-        }
-
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Tem a certeza que pretende sair?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(res == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else 
-            {
-                e.Cancel = true;
-            }
-        }
+        }      
 
         private void tempoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -85,18 +69,22 @@ namespace Recepies.WinForms
 
         private void comentáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmComents>().Count() == 0)
-                Co = new FrmComents();
+            if (Application.OpenForms.OfType<FrmComments>().Count() == 0)
+                Co = new FrmComments();
             Co.MdiParent = this;
             Co.WindowState = FormWindowState.Maximized;
             Co.Show();
             Co.BringToFront();
         }
+        #endregion
+
+
+        #region Utilizadores
 
         private void inserirUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmInsertUser>().Count() == 0)
-                Iu = new FrmInsertUser();
+            if (Application.OpenForms.OfType<FrmUser_Insert>().Count() == 0)
+                Iu = new FrmUser_Insert();
             //Iu.MdiParent = this;
             Iu.ShowDialog();
             Iu.BringToFront();
@@ -104,12 +92,12 @@ namespace Recepies.WinForms
 
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUpdateBlockDelete>().Count() == 0)
-                Ubd = new FrmUpdateBlockDelete("Alterar");
+            if (Application.OpenForms.OfType<FrmUser_UpdateBlockDelete>().Count() == 0)
+                Ubd = new FrmUser_UpdateBlockDelete("Alterar");
             else
             {
                 Ubd.Close();
-                Ubd = new FrmUpdateBlockDelete("Alterar");
+                Ubd = new FrmUser_UpdateBlockDelete("Alterar");
             }
             Ubd.MdiParent = this;
             Ubd.WindowState = FormWindowState.Maximized;
@@ -119,12 +107,12 @@ namespace Recepies.WinForms
 
         private void bloquearDesbloquearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUpdateBlockDelete>().Count() == 0)
-                Ubd = new FrmUpdateBlockDelete("Bloquear/Desbloquear");
+            if (Application.OpenForms.OfType<FrmUser_UpdateBlockDelete>().Count() == 0)
+                Ubd = new FrmUser_UpdateBlockDelete("Bloquear/Desbloquear");
             else
             {
                 Ubd.Close();
-                Ubd = new FrmUpdateBlockDelete("Bloquear/Desbloquear");
+                Ubd = new FrmUser_UpdateBlockDelete("Bloquear/Desbloquear");
             }
             Ubd.MdiParent = this;
 
@@ -135,17 +123,52 @@ namespace Recepies.WinForms
 
         private void eliminarUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUpdateBlockDelete>().Count() == 0)
-                Ubd = new FrmUpdateBlockDelete("Eliminar");
+            if (Application.OpenForms.OfType<FrmUser_UpdateBlockDelete>().Count() == 0)
+                Ubd = new FrmUser_UpdateBlockDelete("Eliminar");
             else
             {
                 Ubd.Close();
-                Ubd = new FrmUpdateBlockDelete("Eliminar");
+                Ubd = new FrmUser_UpdateBlockDelete("Eliminar");
             }
             Ubd.MdiParent = this;
             Ubd.WindowState = FormWindowState.Maximized;
             Ubd.Show();
             Ubd.BringToFront();
         }
+
+        #endregion
+
+
+        #region Menu Options
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ExitMessage())
+            {
+                closeSentinel = true;
+                Application.Exit();
+            }
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (!closeSentinel)
+            {
+                if (ExitMessage())
+                {
+                    Dispose(true);
+                    Application.Exit();
+                }
+                e.Cancel = true;
+            }
+        }
+        private bool ExitMessage()
+        {
+            DialogResult res = MessageBox.Show("Tem a certeza que pretende sair?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+                return true;
+            return false;
+        }
+        #endregion
     }
 }

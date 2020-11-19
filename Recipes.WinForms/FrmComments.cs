@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Recepies.WinForms
+namespace Recipes.WinForms
 {
-    public partial class FrmInsertUser : Form
+    public partial class FrmComments : Form
     {
-        public FrmInsertUser()
+        public FrmComments()
         {
             InitializeComponent();
         }

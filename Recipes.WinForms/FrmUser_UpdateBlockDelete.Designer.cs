@@ -1,6 +1,6 @@
-﻿namespace Recepies.WinForms
+﻿namespace Recipes.WinForms
 {
-    partial class FrmUpdateBlockDelete
+    partial class FrmUser_UpdateBlockDelete
     {
         /// <summary>
         /// Required designer variable.
@@ -65,7 +65,7 @@
             // 
             this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.Image = global::Recepies.WinForms.Properties.Resources.delete;
+            this.btDelete.Image = global::Recipes.WinForms.Properties.Resources.delete;
             this.btDelete.Location = new System.Drawing.Point(850, 214);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(146, 50);
@@ -79,7 +79,7 @@
             // 
             this.btUnblock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btUnblock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUnblock.Image = global::Recepies.WinForms.Properties.Resources.patient_boy;
+            this.btUnblock.Image = global::Recipes.WinForms.Properties.Resources.patient_boy;
             this.btUnblock.Location = new System.Drawing.Point(850, 158);
             this.btUnblock.Name = "btUnblock";
             this.btUnblock.Size = new System.Drawing.Size(146, 50);
@@ -93,7 +93,7 @@
             // 
             this.btBlock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBlock.Image = global::Recepies.WinForms.Properties.Resources.status_busy;
+            this.btBlock.Image = global::Recipes.WinForms.Properties.Resources.status_busy;
             this.btBlock.Location = new System.Drawing.Point(850, 102);
             this.btBlock.Name = "btBlock";
             this.btBlock.Size = new System.Drawing.Size(146, 50);
@@ -107,7 +107,7 @@
             // 
             this.btChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btChange.Image = global::Recepies.WinForms.Properties.Resources.track_changes;
+            this.btChange.Image = global::Recipes.WinForms.Properties.Resources.track_changes;
             this.btChange.Location = new System.Drawing.Point(850, 46);
             this.btChange.Name = "btChange";
             this.btChange.Size = new System.Drawing.Size(146, 50);
