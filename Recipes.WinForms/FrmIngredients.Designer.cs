@@ -73,7 +73,7 @@
             this.btDelete.Location = new System.Drawing.Point(889, 173);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(107, 52);
-            this.btDelete.TabIndex = 1;
+            this.btDelete.TabIndex = 3;
             this.btDelete.Text = "Eliminar";
             this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btDelete.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.btUpdate.Location = new System.Drawing.Point(889, 117);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(107, 50);
-            this.btUpdate.TabIndex = 1;
+            this.btUpdate.TabIndex = 2;
             this.btUpdate.Text = "Alterar";
             this.btUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btUpdate.UseVisualStyleBackColor = true;

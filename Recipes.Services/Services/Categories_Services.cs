@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Recipes.Services.Services
 {
-    class Categories_Services
+    public class Categories_Services
     {
         private CategoriesRepository _repo;
 
@@ -28,6 +28,7 @@ namespace Recipes.Services.Services
         {
             return _repo.GetById(id);
         }
+
         public void Add(Category category)
         {
             _repo.Add(category);

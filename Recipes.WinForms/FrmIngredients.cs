@@ -25,8 +25,8 @@ namespace Recipes.WinForms
 
         private void btInsert_Click(object sender, EventArgs e)
         {
-            FrmIngredients_InsertUpdate FrmInsertIngredient = new FrmIngredients_InsertUpdate(true);
-            FrmInsertIngredient.ShowDialog();
+            FrmIngredients_InsertUpdate FrmIngredients_InsertUpdate = new FrmIngredients_InsertUpdate(true);
+            FrmIngredients_InsertUpdate.ShowDialog();
             FillGrid();
         }
 
@@ -34,10 +34,10 @@ namespace Recipes.WinForms
         private void btUpdate_Click(object sender, EventArgs e)
         {
             int idIngredient;
-            int.TryParse(gvResultIngredients.CurrentRow.Cells["iD"].Value.ToString(), out idIngredient);
+            int.TryParse(gvResultIngredients.CurrentRow.Cells["ID"].Value.ToString(), out idIngredient);
 
-            FrmIngredients_InsertUpdate FrmInsertIngredient = new FrmIngredients_InsertUpdate(false, idIngredient);
-            FrmInsertIngredient.ShowDialog();
+            FrmIngredients_InsertUpdate FrmIngredients_InsertUpdate = new FrmIngredients_InsertUpdate(false, idIngredient);
+            FrmIngredients_InsertUpdate.ShowDialog();
             FillGrid();
         }
 
@@ -47,7 +47,7 @@ namespace Recipes.WinForms
             if (res == DialogResult.Yes)
             {
                 int id;
-                int.TryParse(gvResultIngredients.CurrentRow.Cells["iD"].Value.ToString(), out id);
+                int.TryParse(gvResultIngredients.CurrentRow.Cells["ID"].Value.ToString(), out id);
                 _service.Remove(id);
             }
             else
@@ -74,8 +74,10 @@ namespace Recipes.WinForms
         {
             if (gvResultIngredients.Rows.Count > 0)
             {
-                gvResultIngredients.Columns["iD"].Visible = false;
+                gvResultIngredients.Columns["ID"].Visible = false;
                 gvResultIngredients.Columns["Name"].Width = 190;
+                gvResultIngredients.Columns["Name"].HeaderText = "Nome";
+                gvResultIngredients.Columns["Description"].HeaderText = "Descrição";
             }
         }
     }

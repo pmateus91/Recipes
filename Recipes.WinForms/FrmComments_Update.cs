@@ -33,7 +33,7 @@ namespace Recipes.WinForms
             if (res == DialogResult.Yes)
             {
                 ingredient.Description = tbComentario.Text;
-                ingredient.Id = _id;
+                ingredient.ID = _id;
                 //guardar na base de dados utilizando a conn
                 if (_isInsert)
                 {

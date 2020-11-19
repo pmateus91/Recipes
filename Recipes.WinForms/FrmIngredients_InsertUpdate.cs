@@ -34,7 +34,7 @@ namespace Recipes.WinForms
             {
                 ingredient.Name = tbNome.Text;
                 ingredient.Description = tbDescricao.Text;
-                ingredient.Id = _id;
+                ingredient.ID = _id;
                 //guardar na base de dados utilizando a conn
                 if (_isInsert)
                 {

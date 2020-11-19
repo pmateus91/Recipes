@@ -14,15 +14,16 @@ namespace Recipes.WinForms
 {
     public partial class FrmCategories_InsertUpdate : Form
     {
-        private Ingredients_Services _service;
+        private Categories_Services _service;
 
-        Ingredient ingredient = new Ingredient();
+        Category category = new Category();
         bool _isInsert;
         int _id;
+
         public FrmCategories_InsertUpdate(bool isInsert,int id=0)
         {
             InitializeComponent();
-            _service = new Ingredients_Services();
+            _service = new Categories_Services();
             _isInsert = isInsert;
             _id = id;
         }      
@@ -32,18 +33,19 @@ namespace Recipes.WinForms
             DialogResult res = MessageBox.Show("Tem a certeza que pretende inserir?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                ingredient.Name = tbNome.Text;
-                ingredient.Description = tbDescricao.Text;
-                ingredient.Id = _id;
-                //guardar na base de dados utilizando a conn
+                category.Name = tbNome.Text;
+                category.Description = tbDescricao.Text;
+                category.ID = _id;
+
+                //guardar na base de dados utilizando o serviço
                 if (_isInsert)
                 {
-                    _service.Add(ingredient);
+                    _service.Add(category);
                     MessageBox.Show("Inserido com sucesso","", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _service.Update(ingredient);
+                    _service.Update(category);
                     MessageBox.Show("Guardado com sucesso","",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 this.Close();
@@ -54,8 +56,8 @@ namespace Recipes.WinForms
         {
             if (!_isInsert)            
             {
-                lblTitle.Text = "―――  Alterar Ingrediente  ―――";
-                lblTitle.Location = new System.Drawing.Point(4, 9);
+                lblTitle.Text = "―――  Alterar Categoria  ―――";
+                lblTitle.Location = new System.Drawing.Point(13, 9);
                 btSave.Image = Properties.Resources.diskette;
                 foreach (var item in _service.GetById(_id))
                 {

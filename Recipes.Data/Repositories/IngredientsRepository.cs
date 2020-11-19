@@ -27,7 +27,7 @@ namespace Recipes.Data.Repositories
                 {
                     Ingredient ingredient = new Ingredient()
                     {
-                        Id = dr.GetInt32(0),
+                        ID = dr.GetInt32(0),
                         Name = dr.GetString(1),
                         Description = dr.GetString(2)                       
                     };
@@ -54,7 +54,7 @@ namespace Recipes.Data.Repositories
                 {
                     Ingredient ingredient = new Ingredient()
                     {
-                        Id = dr.GetInt32(0),
+                        ID = dr.GetInt32(0),
                         Name = dr.GetString(1),
                         Description = dr.GetString(2)
                     };
@@ -119,13 +119,13 @@ namespace Recipes.Data.Repositories
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
                 //SqlCommand cmd = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("spUpdateIngredient", conn);
+                SqlCommand cmd = new SqlCommand("spUpdate_Ingredient", conn);
                // cmd.CommandText = "spUpdateIngredient";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@IngredientID", ingredient.Id);
-                cmd.Parameters.AddWithValue("@Name", ingredient.Name);
-                cmd.Parameters.AddWithValue("@Description", ingredient.Description);
+                cmd.Parameters.AddWithValue("@IngredientID", ingredient.ID);
+                cmd.Parameters.AddWithValue("@IngredientName", ingredient.Name);
+                cmd.Parameters.AddWithValue("@IngredientDescription", ingredient.Description);
                 
                 conn.Open();
 

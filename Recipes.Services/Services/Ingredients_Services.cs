@@ -10,7 +10,6 @@ namespace Recipes.Services.Services
 {
     public class Ingredients_Services
     {
-
         private IngredientsRepository _repo;
 
         public Ingredients_Services()

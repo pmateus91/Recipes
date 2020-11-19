@@ -27,7 +27,7 @@ namespace Recipes.Data.Repositories
                 {
                     Category category = new Category()
                     {
-                        Id = dr.GetInt32(0),
+                        ID = dr.GetInt32(0),
                         Name = dr.GetString(1),
                         Description = dr.GetString(2),
                     };
@@ -43,7 +43,7 @@ namespace Recipes.Data.Repositories
 
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                SqlCommand cmd = new SqlCommand("spGetAll_Category", conn);
+                SqlCommand cmd = new SqlCommand("spGetById_Category", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoryID", id);
 
@@ -54,7 +54,7 @@ namespace Recipes.Data.Repositories
                 {
                     Category category = new Category()
                     {
-                        Id = dr.GetInt32(0),
+                        ID = dr.GetInt32(0),
                         Name = dr.GetString(1),
                         Description = dr.GetString(2),
                     };
@@ -96,7 +96,7 @@ namespace Recipes.Data.Repositories
                 SqlCommand cmd = new SqlCommand("spUpdate_Category", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@CategoryID", category.Id);
+                cmd.Parameters.AddWithValue("@CategoryID", category.ID);
                 cmd.Parameters.AddWithValue("@CategoryName", category.Name);
                 cmd.Parameters.AddWithValue("@CategoryDescription", category.Description);
 

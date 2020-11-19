@@ -44,10 +44,11 @@
             this.btDelete.Location = new System.Drawing.Point(889, 173);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(107, 52);
-            this.btDelete.TabIndex = 1;
+            this.btDelete.TabIndex = 3;
             this.btDelete.Text = "Eliminar";
             this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btUpdate
             // 
@@ -57,10 +58,11 @@
             this.btUpdate.Location = new System.Drawing.Point(889, 117);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(107, 50);
-            this.btUpdate.TabIndex = 1;
+            this.btUpdate.TabIndex = 2;
             this.btUpdate.Text = "Alterar";
             this.btUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btUpdate.UseVisualStyleBackColor = true;
+            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // btInsert
             // 
@@ -74,6 +76,7 @@
             this.btInsert.Text = "Inserir";
             this.btInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btInsert.UseVisualStyleBackColor = true;
+            this.btInsert.Click += new System.EventHandler(this.btInsert_Click);
             // 
             // gvResultCategories
             // 
@@ -91,7 +94,7 @@
             this.gvResultCategories.ReadOnly = true;
             this.gvResultCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvResultCategories.Size = new System.Drawing.Size(871, 656);
-            this.gvResultCategories.TabIndex = 4;
+            this.gvResultCategories.TabIndex = 0;
             // 
             // lblTitle
             // 
@@ -117,6 +120,7 @@
             this.Name = "FrmCategories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categorias";
+            this.Load += new System.EventHandler(this.FrmCategories_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvResultCategories)).EndInit();
             this.ResumeLayout(false);
 
