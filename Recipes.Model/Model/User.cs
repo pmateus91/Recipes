@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Recipes.Model.Model
 {
-    public class User
+    public class User /*: Account*/
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; } //enum
@@ -20,6 +20,8 @@ namespace Recipes.Model.Model
         public Account Account { get; set; }
         public List<Recipe> OwnRecipes { get; set; }
         public List<Recipe> FavoriteRecipes { get; set; }
-
     }
+
+
+
 }

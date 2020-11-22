@@ -1,4 +1,6 @@
 ﻿using Recipes.Services.Services;
+using Recipes.Model.Model;
+using MLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +16,13 @@ namespace Recipes.WinForms
     public partial class FrmCategories : Form
     {
         private Categories_Services _service;
+        string _title, rowFilter;
 
-        public FrmCategories()
+        public FrmCategories(string title)
         {
             InitializeComponent();
             _service = new Categories_Services();
-
+            _title = title;
         }
 
         private void FrmCategories_Load(object sender, EventArgs e)
@@ -27,12 +30,29 @@ namespace Recipes.WinForms
             FillGrid();
         }
 
-        #region Métodos DataGridView
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (gvResultCategories.Rows.Count >= 0)
+            {
+                rowFilter = "";
+                rowFilter += string.Format("Name LIKE '%{0}%'", tbSearch.Text);
+                
+                (gvResultCategories.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+            }
+        }       
+
+        #region METHODS DATAGRIDVIEW
 
         public void FillGrid()
         {
-            gvResultCategories.DataSource = _service.GetALL();
+            DataTable dt = ConvertListToDataTable.ConvertTo<Category>(_service.GetALL());
+            gvResultCategories.DataSource = dt;
             VisualAspectGrid();
+        }
+
+        private void gvResultCategories_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void VisualAspectGrid()
@@ -45,38 +65,8 @@ namespace Recipes.WinForms
                 gvResultCategories.Columns["Description"].HeaderText = "Descrição";
             }
         }
-        #endregion
+        #endregion     
 
-        private void btInsert_Click(object sender, EventArgs e)
-        {
-            FrmCategories_InsertUpdate FrmCategories_InsertUpdate = new FrmCategories_InsertUpdate(true);
-            FrmCategories_InsertUpdate.ShowDialog();
-            FillGrid();
-        }
 
-        private void btUpdate_Click(object sender, EventArgs e)
-        {
-            int idCategories;
-            int.TryParse(gvResultCategories.CurrentRow.Cells["ID"].Value.ToString(), out idCategories);
-
-            FrmCategories_InsertUpdate FrmCategories_InsertUpdate = new FrmCategories_InsertUpdate(false, idCategories);
-            FrmCategories_InsertUpdate.ShowDialog();
-            FillGrid();
-        }
-
-        private void btDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Tem a certeza que pretende eliminar?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
-            {
-                int id;
-                int.TryParse(gvResultCategories.CurrentRow.Cells["ID"].Value.ToString(), out id);
-                _service.Remove(id);
-            }
-            else
-            {
-                FillGrid();
-            }
-        }
     }
 }

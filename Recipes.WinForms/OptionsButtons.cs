@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Recipes.WinForms
 {
-    public partial class FrmTime : Form
+    public partial class OptionsButtons : Form
     {
-        public FrmTime()
+        public OptionsButtons()
         {
             InitializeComponent();
         }

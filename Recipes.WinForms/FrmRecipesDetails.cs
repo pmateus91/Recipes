@@ -38,7 +38,8 @@ namespace Recipes.WinForms
                 if (item.productID == _id)
                     productName = item.productName;
             }
-            lblProductName.Text = productName;
+            //lblProductName.Text = productName;
         }
+
     }
 }

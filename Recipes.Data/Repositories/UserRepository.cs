@@ -1,4 +1,5 @@
 ﻿using Recipes.Model.Model;
+using Recipes.Model.Model.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,24 +10,96 @@ using System.Threading.Tasks;
 
 namespace Recipes.Data.Repositories
 {
+
     public class UserRepository
     {
         public List<User> GetALL()
         {
-            return null;
+            List<User> temp = new List<User>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAll_User_Account", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Account account = new Account();
+                    User user = new User()
+                    {
+                        ID = dr.GetInt32(0),
+                        FirstName = dr.GetString(2),
+                        LastName = dr.GetString(3),
+                        Gender = (Gender)dr.GetByte(4),
+                        Email = dr.GetString(5),
+                        Address = dr.GetString(6),
+                        IsAdmin = dr.GetBoolean(7),
+                        IsBlocked = dr.GetBoolean(8)
+                    };
+                    user.Account = account;
+                    user.Account.AccountID = dr.GetInt32(9);
+                    user.Account.Username = dr.GetString(10);
+
+                    temp.Add(user);
+                }
+                conn.Close();
+            }
+            return temp;
         }
         public User GetById(int id)
         {
-            return null;
+            //Account account = null;                
+            User user = null;
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetById_User", conn);
+                
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserID", id);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                
+                while (dr.Read())
+                {
+                    user = new User()
+                    {
+                        ID = dr.GetInt32(0),
+                        FirstName = dr.GetString(2),
+                        LastName = dr.GetString(3),
+                        Gender = (Gender)dr.GetByte(4),
+                        Email = dr.GetString(5),
+                        Address = dr.GetString(6),
+                        IsAdmin = dr.GetBoolean(7),
+                        IsBlocked = dr.GetBoolean(8),
+                        //AccountID = dr.GetInt32(9),
+                        //Username = dr.GetString(10),
+                        //Password = dr.GetString(11)                        
+                    };
+                    user.Account = new Account();
+                    ////user.Account = account;
+                    user.Account.AccountID = dr.GetInt32(9);
+                    user.Account.Username = dr.GetString(10);
+                    user.Account.Password = dr.GetString(11);
+                }
+               return user;  
+            }
         }
-        public void Add(User user)
+
+        public void Add(User user, Account account)
         {
-            using(SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "spAddUser";
+                cmd.CommandText = "spInsert_User_Account";
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@Username", account.Username);
+                cmd.Parameters.AddWithValue("@Password", account.Password);
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
                 cmd.Parameters.AddWithValue("@Gender", user.Gender);
@@ -34,39 +107,73 @@ namespace Recipes.Data.Repositories
                 cmd.Parameters.AddWithValue("@Address", user.Address);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
                 cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
-                cmd.Parameters.AddWithValue("@Account", user.Account);
-                SqlParameter idParam = new SqlParameter();
-                idParam.ParameterName = "@RecipeID";
-                idParam.SqlDbType = SqlDbType.Int;
-                idParam.Direction = ParameterDirection.Output; // output
 
-                cmd.Parameters.Add(idParam);
+                conn.Open();
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException)
+                {
+                    throw new Exception("Não foi possivel inserir");
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        public void Update(User user, Account account)
+        {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spUpdate_User_Account", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@AccountID", account.AccountID);
+                cmd.Parameters.AddWithValue("@Username", account.Username);
+                cmd.Parameters.AddWithValue("@Password", account.Password);
+                cmd.Parameters.AddWithValue("@UserID", user.ID);
+                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Address", user.Address);
+                cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
+                cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
 
                 conn.Open();
 
                 int affectedRows = cmd.ExecuteNonQuery();
 
-                if (affectedRows == 1)
+                if (affectedRows != 2)
                 {
-                    int id = (int)idParam.Value;
-
-                    user.Id = id;
-                }
-                else
-                {
-                    throw new Exception("Não foi possivel inserir");
+                    throw new Exception("Não foi possivel alterar os dados");
                 }
             }
         }
-        public void Update(User user)
-        {
-
-        }
         public void Remove(int id)
         {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spRemove_User_Account", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@UserID", id);
+
+                conn.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                if (affectedRows != 2)
+                {
+                    throw new Exception("Não foi possivel alterar os dados");
+                }
+
+                // DBCC CHECKIDENT('table',RESEED,ID-1) alterar a seed do ID
+            }
         }
-
         public void UpdateBlockedStatus(User user)
         {
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
@@ -90,3 +197,4 @@ namespace Recipes.Data.Repositories
         }
     }
 }
+

@@ -8,8 +8,14 @@ namespace Recipes.Model.Model
 {
     public class Account
     {
-        public int Id { get; set; }
+        public int AccountID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+
+        public override string ToString()
+        {
+            return Username;
+        }
+      
     }
 }

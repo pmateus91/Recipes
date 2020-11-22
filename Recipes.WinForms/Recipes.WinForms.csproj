@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MLibrary">
-      <HintPath>..\..\Doc's\MLibrary.dll</HintPath>
+    <Reference Include="MLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MLibrary\MLibrary\bin\Debug\MLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmComments_Update.cs">
+    <Compile Include="FrmCategories_Options.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmComments_Update.Designer.cs">
-      <DependentUpon>FrmComments_Update.cs</DependentUpon>
+    <Compile Include="FrmCategories_Options.Designer.cs">
+      <DependentUpon>FrmCategories_Options.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCategories_InsertUpdate.cs">
       <SubType>Form</SubType>
@@ -61,35 +62,35 @@
     <Compile Include="FrmCategories_InsertUpdate.Designer.cs">
       <DependentUpon>FrmCategories_InsertUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIngredients_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngredients_Options.Designer.cs">
+      <DependentUpon>FrmIngredients_Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngredients_InsertUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmIngredients_InsertUpdate.Designer.cs">
       <DependentUpon>FrmIngredients_InsertUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUser_Insert.cs">
+    <Compile Include="FrmUser_Options.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUser_Insert.Designer.cs">
-      <DependentUpon>FrmUser_Insert.cs</DependentUpon>
+    <Compile Include="FrmUser_Options.Designer.cs">
+      <DependentUpon>FrmUser_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUser_InsertUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUser_InsertUpdate.Designer.cs">
+      <DependentUpon>FrmUser_InsertUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRecipesDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmRecipesDetails.Designer.cs">
       <DependentUpon>FrmRecipesDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTime.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTime.Designer.cs">
-      <DependentUpon>FrmTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmComments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmComments.Designer.cs">
-      <DependentUpon>FrmComments.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -115,34 +116,40 @@
     <Compile Include="FrmRecipes.Designer.cs">
       <DependentUpon>FrmRecipes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUser_UpdateBlockDelete.cs">
+    <Compile Include="FrmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUser_UpdateBlockDelete.Designer.cs">
-      <DependentUpon>FrmUser_UpdateBlockDelete.cs</DependentUpon>
+    <Compile Include="FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsButtons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsButtons.Designer.cs">
+      <DependentUpon>OptionsButtons.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmComments_Update.resx">
-      <DependentUpon>FrmComments_Update.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCategories_Options.resx">
+      <DependentUpon>FrmCategories_Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategories_InsertUpdate.resx">
       <DependentUpon>FrmCategories_InsertUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngredients_Options.resx">
+      <DependentUpon>FrmIngredients_Options.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngredients_InsertUpdate.resx">
       <DependentUpon>FrmIngredients_InsertUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUser_Insert.resx">
-      <DependentUpon>FrmUser_Insert.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUser_Options.resx">
+      <DependentUpon>FrmUser_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUser_InsertUpdate.resx">
+      <DependentUpon>FrmUser_InsertUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRecipesDetails.resx">
       <DependentUpon>FrmRecipesDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTime.resx">
-      <DependentUpon>FrmTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmComments.resx">
-      <DependentUpon>FrmComments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -156,8 +163,11 @@
     <EmbeddedResource Include="FrmRecipes.resx">
       <DependentUpon>FrmRecipes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUser_UpdateBlockDelete.resx">
-      <DependentUpon>FrmUser_UpdateBlockDelete.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsButtons.resx">
+      <DependentUpon>OptionsButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -228,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

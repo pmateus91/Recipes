@@ -19,6 +19,7 @@ namespace Recipes.WinForms
         Ingredient ingredient = new Ingredient();
         bool _isInsert;
         int _id;
+
         public FrmIngredients_InsertUpdate(bool isInsert,int id=0)
         {
             InitializeComponent();

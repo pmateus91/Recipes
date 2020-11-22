@@ -118,9 +118,7 @@ namespace Recipes.Data.Repositories
         {
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                //SqlCommand cmd = conn.CreateCommand();
                 SqlCommand cmd = new SqlCommand("spUpdate_Ingredient", conn);
-               // cmd.CommandText = "spUpdateIngredient";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@IngredientID", ingredient.ID);

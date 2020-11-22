@@ -29,6 +29,7 @@ namespace Recipes.WinForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategories_InsertUpdate));
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDescricao = new System.Windows.Forms.TextBox();
@@ -109,13 +110,14 @@ namespace Recipes.WinForms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbDescricao);
             this.Controls.Add(this.tbNome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 290);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(450, 290);
             this.Name = "FrmCategories_InsertUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inserir Ingrediente";
+            this.Text = "Inserir Categoria";
             this.Load += new System.EventHandler(this.FrmInsertIngredient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

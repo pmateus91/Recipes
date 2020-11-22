@@ -1,4 +1,5 @@
 ﻿using Recipes.Services.Services;
+using Recipes.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Recipes.Model.Model;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,8 +15,8 @@ namespace Recipes.WinForms
     public partial class FrmCategories_InsertUpdate : Form
     {
         private Categories_Services _service;
-
         Category category = new Category();
+        
         bool _isInsert;
         int _id;
 
