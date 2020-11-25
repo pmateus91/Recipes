@@ -1,6 +1,6 @@
 ﻿using Recipes.Services.Services;
 using Recipes.Model.Model;
-using MLibrary;
+using PMLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +52,7 @@ namespace Recipes.WinForms
                 FrmIngredients_InsertUpdate frmIngredients_InsertUpdate = new FrmIngredients_InsertUpdate(false, idCategories);
                 frmIngredients_InsertUpdate.ShowDialog();
                 FillGrid();
-            }
+            }            
             else
             {
                 DialogResult res = MessageBox.Show("Tem a certeza que pretende eliminar?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -67,14 +67,6 @@ namespace Recipes.WinForms
                     FillGrid();
                 }
             }
-            
-
-            //int idIngredient;
-            //int.TryParse(gvResultIngredients.CurrentRow.Cells["ID"].Value.ToString(), out idIngredient);
-
-            //FrmIngredients_InsertUpdate FrmIngredients_InsertUpdate = new FrmIngredients_InsertUpdate(false, idIngredient);
-            //FrmIngredients_InsertUpdate.ShowDialog();
-            //FillGrid();
         }
 
         //private void btInsert_Click(object sender, EventArgs e)

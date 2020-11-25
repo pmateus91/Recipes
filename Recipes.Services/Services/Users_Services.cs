@@ -3,6 +3,7 @@ using Recipes.Model.Model;
 using Recipes.Model.Model.Utils;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,13 @@ namespace Recipes.Services.Services
         {          
             _repoUser.Remove(id);
         }
+        public void UpdateBlockedStatus(User user)
+        {
+            _repoUser.UpdateBlockedStatus(user);
+        }
+
+        public DataTable getUserDataTable => _repoUser.GetUserDataTable();
+
 
     }
 }

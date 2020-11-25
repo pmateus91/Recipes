@@ -96,7 +96,7 @@ namespace Recipes.WinForms
             this.MinimumSize = new System.Drawing.Size(197, 231);
             this.Name = "OptionsButtons";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buttons";
+            this.Text = "Opções";
             this.ResumeLayout(false);
 
         }

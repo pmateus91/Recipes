@@ -36,7 +36,6 @@ namespace Recipes.WinForms
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            //cbGender = new 
             DialogResult res = MessageBox.Show("Tem a certeza que pretende inserir?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
@@ -62,19 +61,6 @@ namespace Recipes.WinForms
                 }
                 this.Close();
             }
-
-        //    if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
-        //        u = new FrmUser("Utilizadores - Alterar");
-        //    else
-        //    {
-        //        u.Close();
-        //        u = new FrmUser("Utilizadores - Alterar");
-        //    }
-
-        //    u.MdiParent = frmMain;
-        //    u.WindowState = FormWindowState.Maximized;
-        //    u.Show();
-        //    u.BringToFront();
         }        
 
         private void FrmUser_Insert_Load(object sender, EventArgs e)
@@ -126,7 +112,6 @@ namespace Recipes.WinForms
             else
                 gender = "";
         }
-
 
     }
 }

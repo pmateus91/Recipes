@@ -46,31 +46,7 @@ namespace Recipes.Data.Repositories
             
             return temp;
         }
-        public List<productTeste> GetAllProducts()
-        {
-            List<productTeste> temp = new List<productTeste>();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
-            {
-                SqlCommand cmd = new SqlCommand("uspGetAll", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                conn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    productTeste product = new productTeste()
-                    {
-                        productID = Convert.ToInt32(dr["ProductID"].ToString()),
-                        supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
-                        productName = dr["ProductName"].ToString(),
-                        categoryId = Convert.ToInt32( dr["CategoryID"].ToString())
-                    };
-                    temp.Add(product);
-                }
-            }
-            return temp;
-        }
 
         public Recipe GetById(int id)
         {
@@ -168,6 +144,32 @@ namespace Recipes.Data.Repositories
                 }
             }
 
+        }
+
+        public List<productTeste> GetAllProducts()
+        {
+            List<productTeste> temp = new List<productTeste>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
+            {
+                SqlCommand cmd = new SqlCommand("uspGetAll", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    productTeste product = new productTeste()
+                    {
+                        productID = Convert.ToInt32(dr["ProductID"].ToString()),
+                        supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
+                        productName = dr["ProductName"].ToString(),
+                        categoryId = Convert.ToInt32(dr["CategoryID"].ToString())
+                    };
+                    temp.Add(product);
+                }
+            }
+            return temp;
         }
     }
 }

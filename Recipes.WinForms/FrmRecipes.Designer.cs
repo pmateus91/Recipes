@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecipes));
             this.gvResultRecepies = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.btValidate = new System.Windows.Forms.Button();
-            this.btUpdate = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvResultRecepies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gvResultRecepies
@@ -46,75 +47,65 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvResultRecepies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvResultRecepies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvResultRecepies.Location = new System.Drawing.Point(12, 46);
+            this.gvResultRecepies.Location = new System.Drawing.Point(12, 108);
             this.gvResultRecepies.MultiSelect = false;
             this.gvResultRecepies.Name = "gvResultRecepies";
             this.gvResultRecepies.ReadOnly = true;
             this.gvResultRecepies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvResultRecepies.Size = new System.Drawing.Size(871, 671);
+            this.gvResultRecepies.Size = new System.Drawing.Size(984, 609);
             this.gvResultRecepies.TabIndex = 0;
             this.gvResultRecepies.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvResultRecepies_CellDoubleClick);
             // 
-            // lblTitulo
+            // pictureBox1
             // 
-            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTitulo.Font = new System.Drawing.Font("Rockwell Extra Bold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(373, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(155, 32);
-            this.lblTitulo.TabIndex = 2;
-            this.lblTitulo.Text = "Receitas";
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::Recipes.WinForms.Properties.Resources.zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(258, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
-            // btDelete
+            // tbSearch
             // 
-            this.btDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.Image = global::Recipes.WinForms.Properties.Resources.delete;
-            this.btDelete.Location = new System.Drawing.Point(889, 158);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(107, 52);
-            this.btDelete.TabIndex = 1;
-            this.btDelete.Text = "Eliminar";
-            this.btDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btDelete.UseVisualStyleBackColor = true;
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbSearch.Location = new System.Drawing.Point(416, 65);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(325, 20);
+            this.tbSearch.TabIndex = 13;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // btValidate
+            // lblSearch
             // 
-            this.btValidate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btValidate.Image = global::Recipes.WinForms.Properties.Resources.checkmark;
-            this.btValidate.Location = new System.Drawing.Point(889, 46);
-            this.btValidate.Name = "btValidate";
-            this.btValidate.Size = new System.Drawing.Size(107, 50);
-            this.btValidate.TabIndex = 1;
-            this.btValidate.Text = "Validar";
-            this.btValidate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btValidate.UseVisualStyleBackColor = true;
+            this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Gill Sans MT", 16F, System.Drawing.FontStyle.Bold);
+            this.lblSearch.Location = new System.Drawing.Point(298, 58);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(112, 31);
+            this.lblSearch.TabIndex = 14;
+            this.lblSearch.Text = "Pesquisar";
             // 
-            // btUpdate
+            // lblTitle
             // 
-            this.btUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdate.Image = global::Recipes.WinForms.Properties.Resources.track_changes;
-            this.btUpdate.Location = new System.Drawing.Point(889, 102);
-            this.btUpdate.Name = "btUpdate";
-            this.btUpdate.Size = new System.Drawing.Size(107, 50);
-            this.btUpdate.TabIndex = 1;
-            this.btUpdate.Text = "Alterar";
-            this.btUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btUpdate.UseVisualStyleBackColor = true;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(-7, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1022, 38);
+            this.lblTitle.TabIndex = 12;
+            this.lblTitle.Text = "――――――   RECEITAS   ――――――";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmRecipes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.btDelete);
-            this.Controls.Add(this.btValidate);
-            this.Controls.Add(this.btUpdate);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.gvResultRecepies);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRecipes";
@@ -122,6 +113,7 @@
             this.Text = "Receitas";
             this.Load += new System.EventHandler(this.FrmRecipes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvResultRecepies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,9 +122,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gvResultRecepies;
-        private System.Windows.Forms.Button btUpdate;
-        private System.Windows.Forms.Button btDelete;
-        private System.Windows.Forms.Button btValidate;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

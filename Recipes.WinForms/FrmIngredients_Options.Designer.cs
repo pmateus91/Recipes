@@ -73,7 +73,7 @@
             this.btUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUpdate.Image = global::Recipes.WinForms.Properties.Resources.track_changes;
-            this.btUpdate.Location = new System.Drawing.Point(889, 108);
+            this.btUpdate.Location = new System.Drawing.Point(892, 108);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(107, 50);
             this.btUpdate.TabIndex = 2;

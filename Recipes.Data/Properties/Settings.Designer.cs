@@ -26,7 +26,7 @@ namespace Recipes.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress; database=Recipes;integrated security=true;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS; database=PEdroMateus_Recipes;integrated security=true;")]
         public string conStr {
             get {
                 return ((string)(this["conStr"]));

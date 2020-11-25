@@ -106,7 +106,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(26, 288);
+            this.label4.Location = new System.Drawing.Point(54, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 21);
             this.label4.TabIndex = 3;
@@ -114,16 +114,16 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(108, 290);
+            this.tbUserName.Location = new System.Drawing.Point(151, 301);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(250, 20);
+            this.tbUserName.Size = new System.Drawing.Size(184, 20);
             this.tbUserName.TabIndex = 5;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(108, 340);
+            this.tbPassword.Location = new System.Drawing.Point(151, 351);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(250, 20);
+            this.tbPassword.Size = new System.Drawing.Size(184, 20);
             this.tbPassword.TabIndex = 6;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
@@ -131,7 +131,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(26, 338);
+            this.label5.Location = new System.Drawing.Point(54, 349);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 21);
             this.label5.TabIndex = 3;
@@ -141,7 +141,7 @@
             // 
             this.btSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSave.Image = global::Recipes.WinForms.Properties.Resources.add;
-            this.btSave.Location = new System.Drawing.Point(238, 427);
+            this.btSave.Location = new System.Drawing.Point(238, 449);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(120, 40);
             this.btSave.TabIndex = 7;
@@ -225,9 +225,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 384);
+            this.textBox1.Location = new System.Drawing.Point(151, 401);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.Size = new System.Drawing.Size(184, 20);
             this.textBox1.TabIndex = 6;
             this.textBox1.UseSystemPasswordChar = true;
             // 
@@ -235,7 +235,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(26, 382);
+            this.label7.Location = new System.Drawing.Point(54, 391);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 42);
             this.label7.TabIndex = 3;

@@ -21,6 +21,7 @@ namespace Recipes.WinForms
         FrmCategories frmCategories;
         FrmCategories_Options frmCategories_Options;
         FrmUser frmUser;
+        FrmUser_Options frmUser_Options;
         FrmUser_InsertUpdate frmUser_InsertUpdate;
 
         #endregion CONSTRUCTOR
@@ -137,48 +138,56 @@ namespace Recipes.WinForms
 
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
-                frmUser = new FrmUser("Utilizadores - Alterar");
-            else
-            {
-                frmUser.Close();
-                frmUser = new FrmUser("Utilizadores - Alterar");
-            }
-            frmUser.MdiParent = this;
-            frmUser.WindowState = FormWindowState.Maximized;
-            frmUser.Show();
-            frmUser.BringToFront();
+            OpenFrmUser_Options("Utilizadores - Alterar");
+
+
+            //if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
+            //    frmUser = new FrmUser("Utilizadores - Alterar");
+            //else
+            //{
+            //    frmUser.Close();
+            //    frmUser = new FrmUser("Utilizadores - Alterar");
+            //}
+            //frmUser.MdiParent = this;
+            //frmUser.WindowState = FormWindowState.Maximized;
+            //frmUser.Show();
+            //frmUser.BringToFront();
         }
 
         private void bloquearDesbloquearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
-                frmUser = new FrmUser("Utilizadores - Bloquear/Desbloquear");
-            else
-            {
-                frmUser.Close();
-                frmUser = new FrmUser("Utilizador - Bloquear/Desbloquear");
-            }
-            frmUser.MdiParent = this;
+            //if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
+            //    frmUser = new FrmUser("Utilizadores - Bloquear/Desbloquear");
+            //else
+            //{
+            //    frmUser.Close();
+            //    frmUser = new FrmUser("Utilizador - Bloquear/Desbloquear");
+            //}
+            //frmUser.MdiParent = this;
 
-            frmUser.WindowState = FormWindowState.Maximized;
-            frmUser.Show();
-            frmUser.BringToFront();
+            //frmUser.WindowState = FormWindowState.Maximized;
+            //frmUser.Show();
+            //frmUser.BringToFront();
+            OpenFrmUser_Options("Utilizadores - Bloquear / Desbloquear");
+
         }
 
         private void eliminarUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
-                frmUser = new FrmUser("Utilizadores - Eliminar");
-            else
-            {
-                frmUser.Close();
-                frmUser = new FrmUser("Utilizadores - Eliminar");
-            }
-            frmUser.MdiParent = this;
-            frmUser.WindowState = FormWindowState.Maximized;
-            frmUser.Show();
-            frmUser.BringToFront();
+            //if (Application.OpenForms.OfType<FrmUser>().Count() == 0)
+            //    frmUser = new FrmUser("Utilizadores - Eliminar");
+            //else
+            //{
+            //    frmUser.Close();
+            //    frmUser = new FrmUser("Utilizadores - Eliminar");
+            //}
+            //frmUser.MdiParent = this;
+            //frmUser.WindowState = FormWindowState.Maximized;
+            //frmUser.Show();
+            //frmUser.BringToFront();
+
+            OpenFrmUser_Options("Utilizadores - Eliminar");
+
         }
 
         #endregion MENU - Utilizadores
@@ -323,9 +332,18 @@ namespace Recipes.WinForms
         }
         private void OpenFrmUser_Options(string title)
         {
+            if (Application.OpenForms.OfType<FrmUser_Options>().Count() > 0)
+            {
+                frmUser_Options.Close();
+            }
+            if (Application.OpenForms.OfType<FrmUser_Options>().Count() == 0)
+                frmUser_Options = new FrmUser_Options(title);
 
+            frmUser_Options.MdiParent = this;
+            frmUser_Options.WindowState = FormWindowState.Maximized;
+            frmUser_Options.Show();
+            frmUser_Options.BringToFront();
         }
-
 
         #endregion METHODS       
 

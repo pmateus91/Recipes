@@ -29,7 +29,7 @@ namespace Recipes.Data.Repositories
                 {
                     Account account = new Account();
                     User user = new User()
-                    {
+                    {                        
                         ID = dr.GetInt32(0),
                         FirstName = dr.GetString(2),
                         LastName = dr.GetString(3),
@@ -38,9 +38,8 @@ namespace Recipes.Data.Repositories
                         Address = dr.GetString(6),
                         IsAdmin = dr.GetBoolean(7),
                         IsBlocked = dr.GetBoolean(8)
-                    };
+                };
                     user.Account = account;
-                    user.Account.AccountID = dr.GetInt32(9);
                     user.Account.Username = dr.GetString(10);
 
                     temp.Add(user);
@@ -182,7 +181,7 @@ namespace Recipes.Data.Repositories
 
                 cmd.CommandText = "spUpdateBlockedUser";
                 cmd.CommandType = CommandType.StoredProcedure;
-
+                cmd.Parameters.AddWithValue("@UserID", user.ID);
                 cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
 
                 conn.Open();
@@ -194,6 +193,25 @@ namespace Recipes.Data.Repositories
                     throw new Exception("Não foi possivel alterar os dados");
                 }
             }
+        }
+
+        public DataTable GetUserDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAll_User_Account", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }            
+                conn.Close();
+            }
+            return dt;
         }
     }
 }

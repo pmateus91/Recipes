@@ -39,17 +39,8 @@ namespace Recipes.WinForms
             this.lblDifficulty = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblInstructions = new System.Windows.Forms.Label();
-            this.lblInstructions_Output = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
             this.lblRating = new System.Windows.Forms.Label();
-            this.lblIngredients = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvDetalhesReceitaIngredientes = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.btDeactive = new System.Windows.Forms.Button();
-            this.btActive = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblRating_Output = new System.Windows.Forms.Label();
             this.lblStatus_Output = new System.Windows.Forms.Label();
             this.lblUser_Output = new System.Windows.Forms.Label();
@@ -57,7 +48,16 @@ namespace Recipes.WinForms
             this.lblDifficulty_Output = new System.Windows.Forms.Label();
             this.lblCategory_Output = new System.Windows.Forms.Label();
             this.lblName_Output = new System.Windows.Forms.Label();
+            this.lblInstructions_Output = new System.Windows.Forms.Label();
+            this.lblIngredients = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.dgvDetalhesReceitaIngredientes = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btDeactive = new System.Windows.Forms.Button();
+            this.btActive = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -129,7 +129,7 @@ namespace Recipes.WinForms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 290F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 624);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(624, 624);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // lblName
@@ -192,16 +192,6 @@ namespace Recipes.WinForms
             this.lblInstructions.TabIndex = 7;
             this.lblInstructions.Text = "Instruções:";
             // 
-            // lblInstructions_Output
-            // 
-            this.lblInstructions_Output.AutoSize = true;
-            this.lblInstructions_Output.Location = new System.Drawing.Point(117, 245);
-            this.lblInstructions_Output.Name = "lblInstructions_Output";
-            this.lblInstructions_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblInstructions_Output.Size = new System.Drawing.Size(125, 19);
-            this.lblInstructions_Output.TabIndex = 8;
-            this.lblInstructions_Output.Text = "lblInstructions_Output";
-            // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
@@ -218,15 +208,102 @@ namespace Recipes.WinForms
             this.lblRating.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRating.Location = new System.Drawing.Point(3, 210);
             this.lblRating.Name = "lblRating";
-            this.lblRating.Size = new System.Drawing.Size(103, 21);
+            this.lblRating.Size = new System.Drawing.Size(90, 35);
             this.lblRating.TabIndex = 7;
             this.lblRating.Text = "Classificação:";
+            // 
+            // lblRating_Output
+            // 
+            this.lblRating_Output.AutoSize = true;
+            this.lblRating_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblRating_Output.Location = new System.Drawing.Point(107, 210);
+            this.lblRating_Output.Name = "lblRating_Output";
+            this.lblRating_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblRating_Output.Size = new System.Drawing.Size(97, 19);
+            this.lblRating_Output.TabIndex = 8;
+            this.lblRating_Output.Text = "lblRating_Output";
+            // 
+            // lblStatus_Output
+            // 
+            this.lblStatus_Output.AutoSize = true;
+            this.lblStatus_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblStatus_Output.Location = new System.Drawing.Point(107, 175);
+            this.lblStatus_Output.Name = "lblStatus_Output";
+            this.lblStatus_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblStatus_Output.Size = new System.Drawing.Size(95, 19);
+            this.lblStatus_Output.TabIndex = 8;
+            this.lblStatus_Output.Text = "lblStatus_Output";
+            // 
+            // lblUser_Output
+            // 
+            this.lblUser_Output.AutoSize = true;
+            this.lblUser_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblUser_Output.Location = new System.Drawing.Point(107, 140);
+            this.lblUser_Output.Name = "lblUser_Output";
+            this.lblUser_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblUser_Output.Size = new System.Drawing.Size(86, 19);
+            this.lblUser_Output.TabIndex = 8;
+            this.lblUser_Output.Text = "lblUser_Output";
+            // 
+            // lblDuration_Output
+            // 
+            this.lblDuration_Output.AutoSize = true;
+            this.lblDuration_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblDuration_Output.Location = new System.Drawing.Point(107, 105);
+            this.lblDuration_Output.Name = "lblDuration_Output";
+            this.lblDuration_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblDuration_Output.Size = new System.Drawing.Size(109, 19);
+            this.lblDuration_Output.TabIndex = 8;
+            this.lblDuration_Output.Text = "lblDuration_Output";
+            // 
+            // lblDifficulty_Output
+            // 
+            this.lblDifficulty_Output.AutoSize = true;
+            this.lblDifficulty_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblDifficulty_Output.Location = new System.Drawing.Point(107, 70);
+            this.lblDifficulty_Output.Name = "lblDifficulty_Output";
+            this.lblDifficulty_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblDifficulty_Output.Size = new System.Drawing.Size(111, 19);
+            this.lblDifficulty_Output.TabIndex = 8;
+            this.lblDifficulty_Output.Text = "lblDifficulty_Output";
+            // 
+            // lblCategory_Output
+            // 
+            this.lblCategory_Output.AutoSize = true;
+            this.lblCategory_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCategory_Output.Location = new System.Drawing.Point(107, 35);
+            this.lblCategory_Output.Name = "lblCategory_Output";
+            this.lblCategory_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblCategory_Output.Size = new System.Drawing.Size(111, 19);
+            this.lblCategory_Output.TabIndex = 8;
+            this.lblCategory_Output.Text = "lblCategory_Output";
+            // 
+            // lblName_Output
+            // 
+            this.lblName_Output.AutoSize = true;
+            this.lblName_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblName_Output.Location = new System.Drawing.Point(107, 0);
+            this.lblName_Output.Name = "lblName_Output";
+            this.lblName_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblName_Output.Size = new System.Drawing.Size(95, 19);
+            this.lblName_Output.TabIndex = 8;
+            this.lblName_Output.Text = "lblName_Output";
+            // 
+            // lblInstructions_Output
+            // 
+            this.lblInstructions_Output.AutoSize = true;
+            this.lblInstructions_Output.Location = new System.Drawing.Point(107, 245);
+            this.lblInstructions_Output.Name = "lblInstructions_Output";
+            this.lblInstructions_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.lblInstructions_Output.Size = new System.Drawing.Size(125, 19);
+            this.lblInstructions_Output.TabIndex = 8;
+            this.lblInstructions_Output.Text = "lblInstructions_Output";
             // 
             // lblIngredients
             // 
             this.lblIngredients.AutoSize = true;
             this.lblIngredients.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngredients.Location = new System.Drawing.Point(771, 42);
+            this.lblIngredients.Location = new System.Drawing.Point(742, 42);
             this.lblIngredients.Name = "lblIngredients";
             this.lblIngredients.Size = new System.Drawing.Size(155, 21);
             this.lblIngredients.TabIndex = 7;
@@ -246,9 +323,9 @@ namespace Recipes.WinForms
             // dgvDetalhesReceitaIngredientes
             // 
             this.dgvDetalhesReceitaIngredientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalhesReceitaIngredientes.Location = new System.Drawing.Point(693, 66);
+            this.dgvDetalhesReceitaIngredientes.Location = new System.Drawing.Point(638, 66);
             this.dgvDetalhesReceitaIngredientes.Name = "dgvDetalhesReceitaIngredientes";
-            this.dgvDetalhesReceitaIngredientes.Size = new System.Drawing.Size(299, 624);
+            this.dgvDetalhesReceitaIngredientes.Size = new System.Drawing.Size(354, 624);
             this.dgvDetalhesReceitaIngredientes.TabIndex = 0;
             // 
             // tabPage2
@@ -265,6 +342,17 @@ namespace Recipes.WinForms
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Comentários";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(-4, -2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1008, 38);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "――――――   COMENTÁRIOS   ――――――";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btDelete
             // 
@@ -312,94 +400,6 @@ namespace Recipes.WinForms
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(862, 630);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // lblRating_Output
-            // 
-            this.lblRating_Output.AutoSize = true;
-            this.lblRating_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblRating_Output.Location = new System.Drawing.Point(117, 210);
-            this.lblRating_Output.Name = "lblRating_Output";
-            this.lblRating_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblRating_Output.Size = new System.Drawing.Size(97, 19);
-            this.lblRating_Output.TabIndex = 8;
-            this.lblRating_Output.Text = "lblRating_Output";
-            // 
-            // lblStatus_Output
-            // 
-            this.lblStatus_Output.AutoSize = true;
-            this.lblStatus_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStatus_Output.Location = new System.Drawing.Point(117, 175);
-            this.lblStatus_Output.Name = "lblStatus_Output";
-            this.lblStatus_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblStatus_Output.Size = new System.Drawing.Size(95, 19);
-            this.lblStatus_Output.TabIndex = 8;
-            this.lblStatus_Output.Text = "lblStatus_Output";
-            // 
-            // lblUser_Output
-            // 
-            this.lblUser_Output.AutoSize = true;
-            this.lblUser_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUser_Output.Location = new System.Drawing.Point(117, 140);
-            this.lblUser_Output.Name = "lblUser_Output";
-            this.lblUser_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblUser_Output.Size = new System.Drawing.Size(86, 19);
-            this.lblUser_Output.TabIndex = 8;
-            this.lblUser_Output.Text = "lblUser_Output";
-            // 
-            // lblDuration_Output
-            // 
-            this.lblDuration_Output.AutoSize = true;
-            this.lblDuration_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDuration_Output.Location = new System.Drawing.Point(117, 105);
-            this.lblDuration_Output.Name = "lblDuration_Output";
-            this.lblDuration_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblDuration_Output.Size = new System.Drawing.Size(109, 19);
-            this.lblDuration_Output.TabIndex = 8;
-            this.lblDuration_Output.Text = "lblDuration_Output";
-            // 
-            // lblDifficulty_Output
-            // 
-            this.lblDifficulty_Output.AutoSize = true;
-            this.lblDifficulty_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDifficulty_Output.Location = new System.Drawing.Point(117, 70);
-            this.lblDifficulty_Output.Name = "lblDifficulty_Output";
-            this.lblDifficulty_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblDifficulty_Output.Size = new System.Drawing.Size(111, 19);
-            this.lblDifficulty_Output.TabIndex = 8;
-            this.lblDifficulty_Output.Text = "lblDifficulty_Output";
-            // 
-            // lblCategory_Output
-            // 
-            this.lblCategory_Output.AutoSize = true;
-            this.lblCategory_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblCategory_Output.Location = new System.Drawing.Point(117, 35);
-            this.lblCategory_Output.Name = "lblCategory_Output";
-            this.lblCategory_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblCategory_Output.Size = new System.Drawing.Size(111, 19);
-            this.lblCategory_Output.TabIndex = 8;
-            this.lblCategory_Output.Text = "lblCategory_Output";
-            // 
-            // lblName_Output
-            // 
-            this.lblName_Output.AutoSize = true;
-            this.lblName_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblName_Output.Location = new System.Drawing.Point(117, 0);
-            this.lblName_Output.Name = "lblName_Output";
-            this.lblName_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lblName_Output.Size = new System.Drawing.Size(95, 19);
-            this.lblName_Output.TabIndex = 8;
-            this.lblName_Output.Text = "lblName_Output";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(-4, -2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1008, 38);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "――――――   COMENTÁRIOS   ――――――";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmRecipesDetails
             // 
