@@ -88,30 +88,6 @@ namespace Recipes.Data.Repositories
                 {
                     conn.Close();
                 }
-
-
-                //// output
-                //SqlParameter idParam = new SqlParameter();
-                //idParam.ParameterName = "@IngredientID";
-                //idParam.SqlDbType = SqlDbType.Int;
-                //idParam.Direction = ParameterDirection.Output; // output
-
-                //cmd.Parameters.Add(idParam);
-
-                //conn.Open();
-
-                //int affectedRows = cmd.ExecuteNonQuery();
-
-                //if (affectedRows == 1)
-                //{
-                //    int id = (int)idParam.Value;
-
-                //    ingredient.Id = id;
-                //}
-                //else
-                //{
-                //    throw new Exception("Não foi possivel inserir");
-                //}
             }
         }
         public void Update(Ingredient ingredient)

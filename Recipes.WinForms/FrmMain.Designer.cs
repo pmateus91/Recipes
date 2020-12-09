@@ -34,9 +34,9 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.validarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.validarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,23 +115,24 @@
             this.consultarReceitasToolStripMenuItem.Text = "Consultar";
             this.consultarReceitasToolStripMenuItem.Click += new System.EventHandler(this.consultarReceitasToolStripMenuItem_Click);
             // 
-            // validarReceitasToolStripMenuItem
-            // 
-            this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
-            this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.validarReceitasToolStripMenuItem.Text = "Validar";
-            // 
             // inserirReceitasToolStripMenuItem
             // 
             this.inserirReceitasToolStripMenuItem.Name = "inserirReceitasToolStripMenuItem";
             this.inserirReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inserirReceitasToolStripMenuItem.Text = "Inserir";
+            this.inserirReceitasToolStripMenuItem.Click += new System.EventHandler(this.inserirReceitasToolStripMenuItem_Click);
             // 
             // alterarReceitasToolStripMenuItem
             // 
             this.alterarReceitasToolStripMenuItem.Name = "alterarReceitasToolStripMenuItem";
             this.alterarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarReceitasToolStripMenuItem.Text = "Alterar";
+            // 
+            // validarReceitasToolStripMenuItem
+            // 
+            this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
+            this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validarReceitasToolStripMenuItem.Text = "Validar";
             // 
             // eliminarReceitasToolStripMenuItem
             // 
@@ -192,28 +193,28 @@
             // consultarIngredientesToolStripMenuItem
             // 
             this.consultarIngredientesToolStripMenuItem.Name = "consultarIngredientesToolStripMenuItem";
-            this.consultarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.consultarIngredientesToolStripMenuItem.Text = "Consultar";
             this.consultarIngredientesToolStripMenuItem.Click += new System.EventHandler(this.consultarIngredientesToolStripMenuItem_Click);
             // 
             // inserirIngredientesToolStripMenuItem
             // 
             this.inserirIngredientesToolStripMenuItem.Name = "inserirIngredientesToolStripMenuItem";
-            this.inserirIngredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inserirIngredientesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.inserirIngredientesToolStripMenuItem.Text = "Inserir";
             this.inserirIngredientesToolStripMenuItem.Click += new System.EventHandler(this.inserirIngredientesToolStripMenuItem_Click);
             // 
             // alterarIngredientesToolStripMenuItem
             // 
             this.alterarIngredientesToolStripMenuItem.Name = "alterarIngredientesToolStripMenuItem";
-            this.alterarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.alterarIngredientesToolStripMenuItem.Text = "Alterar";
             this.alterarIngredientesToolStripMenuItem.Click += new System.EventHandler(this.alterarIngredientesToolStripMenuItem_Click);
             // 
             // eliminarIngredientesToolStripMenuItem
             // 
             this.eliminarIngredientesToolStripMenuItem.Name = "eliminarIngredientesToolStripMenuItem";
-            this.eliminarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.eliminarIngredientesToolStripMenuItem.Text = "Eliminar";
             this.eliminarIngredientesToolStripMenuItem.Click += new System.EventHandler(this.eliminarIngredientesToolStripMenuItem_Click);
             // 
@@ -317,7 +318,7 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // FrmMain

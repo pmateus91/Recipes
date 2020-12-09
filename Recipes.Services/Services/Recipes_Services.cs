@@ -26,12 +26,10 @@ namespace Recipes.Services.Services
             return _repo.GetALL();             
         }
 
-        public List<productTeste> GetAllProducts()
-        {
-            return _repo.GetAllProducts();
-        }
-
-
+        //public List<RecipeIngredient> GetAllProducts()
+        //{
+        //    return _repo.GetAllProducts();
+        //}
 
         public Recipe GetById(int id)
         {

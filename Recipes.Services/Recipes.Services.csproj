@@ -45,6 +45,7 @@
     <Compile Include="Services\Categories_Services.cs" />
     <Compile Include="Services\Comments_Services.cs" />
     <Compile Include="Services\Ingredients_Services.cs" />
+    <Compile Include="Services\RecipesIngredients_Services.cs" />
     <Compile Include="Services\Recipes_Services.cs" />
     <Compile Include="Services\Users_Services.cs" />
   </ItemGroup>

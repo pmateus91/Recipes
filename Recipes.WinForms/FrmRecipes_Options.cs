@@ -23,14 +23,14 @@ namespace Recipes.WinForms
 
         private void FrmRecipes_Load(object sender, EventArgs e)
         {
-            fillGrid();
+            //fillGrid();
         }
 
-        private void fillGrid()
-        {
-            gvResultRecepies.DataSource = _service.GetAllProducts();
-            VisualAspectGrid();
-        }
+        //private void fillGrid()
+        //{
+        //    gvResultRecepies.DataSource = _service.GetAllProducts();
+        //    VisualAspectGrid();
+        //}
 
         private void gvResultRecepies_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -100,8 +100,8 @@ namespace Recipes.WinForms
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7894F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.2106F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.94872F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.05128F));
             this.tableLayoutPanel1.Controls.Add(this.lblName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblStatus, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblUser, 0, 4);
@@ -208,7 +208,7 @@ namespace Recipes.WinForms
             this.lblRating.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRating.Location = new System.Drawing.Point(3, 210);
             this.lblRating.Name = "lblRating";
-            this.lblRating.Size = new System.Drawing.Size(90, 35);
+            this.lblRating.Size = new System.Drawing.Size(103, 21);
             this.lblRating.TabIndex = 7;
             this.lblRating.Text = "Classificação:";
             // 
@@ -216,7 +216,7 @@ namespace Recipes.WinForms
             // 
             this.lblRating_Output.AutoSize = true;
             this.lblRating_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblRating_Output.Location = new System.Drawing.Point(107, 210);
+            this.lblRating_Output.Location = new System.Drawing.Point(115, 210);
             this.lblRating_Output.Name = "lblRating_Output";
             this.lblRating_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblRating_Output.Size = new System.Drawing.Size(97, 19);
@@ -227,7 +227,7 @@ namespace Recipes.WinForms
             // 
             this.lblStatus_Output.AutoSize = true;
             this.lblStatus_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStatus_Output.Location = new System.Drawing.Point(107, 175);
+            this.lblStatus_Output.Location = new System.Drawing.Point(115, 175);
             this.lblStatus_Output.Name = "lblStatus_Output";
             this.lblStatus_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblStatus_Output.Size = new System.Drawing.Size(95, 19);
@@ -238,7 +238,7 @@ namespace Recipes.WinForms
             // 
             this.lblUser_Output.AutoSize = true;
             this.lblUser_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUser_Output.Location = new System.Drawing.Point(107, 140);
+            this.lblUser_Output.Location = new System.Drawing.Point(115, 140);
             this.lblUser_Output.Name = "lblUser_Output";
             this.lblUser_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblUser_Output.Size = new System.Drawing.Size(86, 19);
@@ -249,7 +249,7 @@ namespace Recipes.WinForms
             // 
             this.lblDuration_Output.AutoSize = true;
             this.lblDuration_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDuration_Output.Location = new System.Drawing.Point(107, 105);
+            this.lblDuration_Output.Location = new System.Drawing.Point(115, 105);
             this.lblDuration_Output.Name = "lblDuration_Output";
             this.lblDuration_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblDuration_Output.Size = new System.Drawing.Size(109, 19);
@@ -260,7 +260,7 @@ namespace Recipes.WinForms
             // 
             this.lblDifficulty_Output.AutoSize = true;
             this.lblDifficulty_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDifficulty_Output.Location = new System.Drawing.Point(107, 70);
+            this.lblDifficulty_Output.Location = new System.Drawing.Point(115, 70);
             this.lblDifficulty_Output.Name = "lblDifficulty_Output";
             this.lblDifficulty_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblDifficulty_Output.Size = new System.Drawing.Size(111, 19);
@@ -271,7 +271,7 @@ namespace Recipes.WinForms
             // 
             this.lblCategory_Output.AutoSize = true;
             this.lblCategory_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblCategory_Output.Location = new System.Drawing.Point(107, 35);
+            this.lblCategory_Output.Location = new System.Drawing.Point(115, 35);
             this.lblCategory_Output.Name = "lblCategory_Output";
             this.lblCategory_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblCategory_Output.Size = new System.Drawing.Size(111, 19);
@@ -282,7 +282,7 @@ namespace Recipes.WinForms
             // 
             this.lblName_Output.AutoSize = true;
             this.lblName_Output.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblName_Output.Location = new System.Drawing.Point(107, 0);
+            this.lblName_Output.Location = new System.Drawing.Point(115, 0);
             this.lblName_Output.Name = "lblName_Output";
             this.lblName_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblName_Output.Size = new System.Drawing.Size(95, 19);
@@ -292,7 +292,7 @@ namespace Recipes.WinForms
             // lblInstructions_Output
             // 
             this.lblInstructions_Output.AutoSize = true;
-            this.lblInstructions_Output.Location = new System.Drawing.Point(107, 245);
+            this.lblInstructions_Output.Location = new System.Drawing.Point(115, 245);
             this.lblInstructions_Output.Name = "lblInstructions_Output";
             this.lblInstructions_Output.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.lblInstructions_Output.Size = new System.Drawing.Size(125, 19);

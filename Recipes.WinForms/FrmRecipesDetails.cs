@@ -31,15 +31,20 @@ namespace Recipes.WinForms
 
         private void FrmRecipesDetails_Load(object sender, EventArgs e)
         {
-            string productName = "";
-            List<Recipes.Model.Model.productTeste> lista = _service.GetAllProducts();
-            foreach (var item in lista)
-            {
-                if (item.productID == _id)
-                    productName = item.productName;
-            }
-            //lblProductName.Text = productName;
+
         }
+
+        //private void FrmRecipesDetails_Load(object sender, EventArgs e)
+        //{
+        //    string productName = "";
+        //    List<Recipes.Model.Model.RecipeIngredient> lista = _service.GetAllProducts();
+        //    foreach (var item in lista)
+        //    {
+        //        if (item.productID == _id)
+        //            productName = item.productName;
+        //    }
+        //    //lblProductName.Text = productName;
+        //}
 
     }
 }

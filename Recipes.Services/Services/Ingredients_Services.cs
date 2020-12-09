@@ -31,7 +31,6 @@ namespace Recipes.Services.Services
         public void Add(Ingredient ingredient)
         {
             _repo.Add(ingredient);
-
         }
 
         public void Update(Ingredient ingredient)

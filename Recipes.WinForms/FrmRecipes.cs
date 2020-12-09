@@ -47,7 +47,7 @@ namespace Recipes.WinForms
         {
             DataTable dt = ConvertListToDataTable.ConvertTo<Recipe>(_service.GetALL());
             gvResultRecepies.DataSource = dt;
-            VisualAspectGrid();
+            //VisualAspectGrid();
         }
 
         private void VisualAspectGrid()

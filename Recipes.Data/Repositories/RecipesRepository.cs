@@ -19,7 +19,7 @@ namespace Recipes.Data.Repositories
 
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                SqlCommand cmd = new SqlCommand("spSearchRecipe", conn);
+                SqlCommand cmd = new SqlCommand("spGetAll_Recepie", conn);
                 //SqlCommand cmd = conn.CreateCommand();
                 //cmd.CommandText = "spSearchRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -29,17 +29,18 @@ namespace Recipes.Data.Repositories
 
                 while (dr.Read())
                 {
-                    Recipe Recipe = new Recipe()
+                    Recipe recipe = new Recipe()
                     {
-                        Id = dr.GetInt32(0),
-                        Title = dr.GetString(1),
-                        Duration = dr.GetTimeSpan(2),
-                        Difficulty = (Difficulty)dr.GetByte(3),
-                        Rating = (Rating)dr.GetByte(4),
-                        Instructions = dr.GetString(5),
-                        Status = dr.GetBoolean(6)
+                        ID = dr.GetInt32(0),
+                        Category = dr.GetInt32(1),
+                        User = dr.GetInt32(2),
+                        Title = dr.GetString(3),
+                        Duration = dr.GetTimeSpan(4),
+                        Difficulty = (Difficulty)dr.GetInt32(5),
+                        Instructions = dr.GetString(6),
+                        Status = dr.GetBoolean(7)
                     };
-                    temp.Add(Recipe);
+                    temp.Add(recipe);
                 }
                 conn.Close();
             }
@@ -59,18 +60,17 @@ namespace Recipes.Data.Repositories
             {
                 SqlCommand cmd = conn.CreateCommand();
 
-                cmd.CommandText = "spAddRecipe";
+                cmd.CommandText = "spInsert_Recipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@CategoryID", recipe.Category);
-                cmd.Parameters.AddWithValue("@IngredientsID", recipe.Ingredient);
-                cmd.Parameters.AddWithValue("@UserID", recipe.User);
+                cmd.Parameters.AddWithValue("@UserID", 1);
                 cmd.Parameters.AddWithValue("@Title", recipe.Title);
                 cmd.Parameters.AddWithValue("@Duration", recipe.Duration);
                 cmd.Parameters.AddWithValue("@Difficulty", recipe.Difficulty);
                 cmd.Parameters.AddWithValue("@Instructions", recipe.Instructions);
                 cmd.Parameters.AddWithValue("@Status", recipe.Status);
-
+              
                 // output
                 SqlParameter idParam = new SqlParameter();
                 idParam.ParameterName = "@RecipeID";
@@ -87,14 +87,16 @@ namespace Recipes.Data.Repositories
                 {
                     int id = (int)idParam.Value;
 
-                    recipe.Id = id;
+                    recipe.ID = id;
                 }
                 else
                 {
                     throw new Exception("Não foi possivel inserir");
                 }
+
             }
         }
+
         public void Update(Recipe recipe)
         {
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
@@ -146,30 +148,49 @@ namespace Recipes.Data.Repositories
 
         }
 
-        public List<productTeste> GetAllProducts()
+        //public List<RecipeIngredient> GetAllProducts()
+        //{
+        //    List<RecipeIngredient> temp = new List<RecipeIngredient>();
+
+        //    using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("uspGetAll", conn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        conn.Open();
+        //        SqlDataReader dr = cmd.ExecuteReader();
+
+        //        while (dr.Read())
+        //        {
+        //            RecipeIngredient product = new RecipeIngredient()
+        //            {
+        //                productID = Convert.ToInt32(dr["ProductID"].ToString()),
+        //                supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
+        //                productName = dr["ProductName"].ToString(),
+        //                categoryId = Convert.ToInt32(dr["CategoryID"].ToString())
+        //            };
+        //            temp.Add(product);
+        //        }
+        //    }
+        //    return temp;
+        //}
+
+        public DataTable GetRecipeDataTable()
         {
-            List<productTeste> temp = new List<productTeste>();
-
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                SqlCommand cmd = new SqlCommand("uspGetAll", conn);
+                SqlCommand cmd = new SqlCommand("spGetAll_Recipe_Ingredients", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                conn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
 
-                while (dr.Read())
+                conn.Open();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
-                    productTeste product = new productTeste()
-                    {
-                        productID = Convert.ToInt32(dr["ProductID"].ToString()),
-                        supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
-                        productName = dr["ProductName"].ToString(),
-                        categoryId = Convert.ToInt32(dr["CategoryID"].ToString())
-                    };
-                    temp.Add(product);
+                    da.Fill(dt);
                 }
+                conn.Close();
             }
-            return temp;
+            return dt;
         }
     }
 }

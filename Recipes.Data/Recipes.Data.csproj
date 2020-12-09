@@ -51,6 +51,7 @@
     <Compile Include="Repositories\CategoriesRepository.cs" />
     <Compile Include="Repositories\CommentsRepository.cs" />
     <Compile Include="Repositories\IngredientsRepository.cs" />
+    <Compile Include="Repositories\RecipeIngredientsRepository.cs" />
     <Compile Include="Repositories\RecipesRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>

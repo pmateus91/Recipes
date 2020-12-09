@@ -47,7 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.cbIsAdmin = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -223,13 +223,13 @@
             this.cbIsAdmin.Text = "Administrador";
             this.cbIsAdmin.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbConfirmPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 401);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.tbConfirmPassword.Location = new System.Drawing.Point(151, 401);
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.Size = new System.Drawing.Size(184, 20);
+            this.tbConfirmPassword.TabIndex = 6;
+            this.tbConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -253,7 +253,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbConfirmPassword);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label8);
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.CheckBox cbIsAdmin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbConfirmPassword;
         private System.Windows.Forms.Label label7;
     }
 }

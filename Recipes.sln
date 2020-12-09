@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Services", "Recipes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.WinForms", "Recipes.WinForms\Recipes.WinForms.csproj", "{F4B986A6-F196-4214-9555-09432FF51436}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.WebForms", "Recipes.WebForms\Recipes.WebForms.csproj", "{EBEE5907-4280-4A84-B2C3-76628BCD4EBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{F4B986A6-F196-4214-9555-09432FF51436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4B986A6-F196-4214-9555-09432FF51436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4B986A6-F196-4214-9555-09432FF51436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBEE5907-4280-4A84-B2C3-76628BCD4EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEE5907-4280-4A84-B2C3-76628BCD4EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEE5907-4280-4A84-B2C3-76628BCD4EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEE5907-4280-4A84-B2C3-76628BCD4EBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{3D41BAB6-DFBE-4129-A5B0-EB7BD8F171FD} = {47C60075-DFDB-4BFF-B0DA-8E9BD558F4CA}
 		{58AB3121-FE67-446A-9113-5291649352D5} = {47C60075-DFDB-4BFF-B0DA-8E9BD558F4CA}
 		{F4B986A6-F196-4214-9555-09432FF51436} = {B5BBCEA5-94EA-485D-BA14-AB83FCAFC590}
+		{EBEE5907-4280-4A84-B2C3-76628BCD4EBB} = {B5BBCEA5-94EA-485D-BA14-AB83FCAFC590}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {860EE693-8300-456F-8384-F5D6618F1A0A}

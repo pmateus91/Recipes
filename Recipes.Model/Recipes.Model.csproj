@@ -48,7 +48,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Ingredient.cs" />
-    <Compile Include="Model\productTeste.cs" />
+    <Compile Include="Model\RecipeIngredient.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Utils\Difficulty.cs" />

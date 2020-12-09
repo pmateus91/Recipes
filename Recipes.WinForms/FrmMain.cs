@@ -345,9 +345,14 @@ namespace Recipes.WinForms
             frmUser_Options.BringToFront();
         }
 
+
         #endregion METHODS       
 
-        
+        private void inserirReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRecipesInsert frmRecipesInsert = new FrmRecipesInsert();
+            frmRecipesInsert.Show();
+        }
     }
 
 }

@@ -24,7 +24,6 @@ namespace Recipes.WinForms
         bool _isInsert;
         int _id;
         string gender;
-        //FrmMain frmMain = new FrmMain();
 
         public FrmUser_InsertUpdate(bool isInsert, int id = 0)
         {
@@ -35,9 +34,12 @@ namespace Recipes.WinForms
         }
 
         private void btSave_Click(object sender, EventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Tem a certeza que pretende inserir?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
+        {           
+            if (string.IsNullOrWhiteSpace(tbFirstName.Text) || string.IsNullOrWhiteSpace(tbLastName.Text) || string.IsNullOrWhiteSpace(tbEmail.Text) || string.IsNullOrWhiteSpace(tbUserName.Text) || string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                MessageBox.Show("Existem dados por preencher", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 GiveGender();
                 user.FirstName = tbFirstName.Text;
@@ -51,17 +53,40 @@ namespace Recipes.WinForms
 
                 if (_isInsert)
                 {
-                    _serviceUsers.Add(user, account);
-                    MessageBox.Show("Inserido com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult res = MessageBox.Show("Tem a certeza que pretende inserir?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        if (tbPassword.Text == tbConfirmPassword.Text)
+                        {
+                            _serviceUsers.Add(user, account);
+                            MessageBox.Show("Inserido com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("As Passwords não coincidem", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
                 else
                 {
-                    _serviceUsers.Update(user, account);
-                    MessageBox.Show("Guardado com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult resAlt = MessageBox.Show("Tem a certeza que pretende Alterar?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resAlt == DialogResult.Yes)
+                    {
+                        if (tbPassword.Text == tbConfirmPassword.Text)
+                        {
+                            _serviceUsers.Update(user, account);
+                            MessageBox.Show("Guardado com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("As Passwords não coincidem", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-                this.Close();
             }
-        }        
+        }
 
         private void FrmUser_Insert_Load(object sender, EventArgs e)
         {
@@ -82,6 +107,7 @@ namespace Recipes.WinForms
                 account.AccountID = _serviceUsers.GetById(_id).Account.AccountID;
                 tbUserName.Text = _serviceUsers.GetById(_id).Account.Username;
                 tbPassword.Text = _serviceUsers.GetById(_id).Account.Password;
+                tbConfirmPassword.Text = _serviceUsers.GetById(_id).Account.Password;
             }
         }
 
