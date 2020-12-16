@@ -41,6 +41,13 @@ namespace Recipes.WebForms
             Session["ID"] = (sender as LinkButton).CommandArgument;
             Response.Redirect("~/detalhesreceita.aspx");
         }
-    
+        protected void EliminarFavorito(object sender, EventArgs e)
+        {
+            Session["ID"] = (sender as LinkButton).CommandArgument;
+            id = int.Parse(Session["ID"].ToString());
+            _frService.Remove(id);
+            Response.Redirect(Request.RawUrl);
+        }
+
     }
 }

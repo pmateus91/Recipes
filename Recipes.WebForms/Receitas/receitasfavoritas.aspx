@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="receitasfavoritas.aspx.cs" Inherits="Recipes.WebForms.Receitasfavoritas" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
@@ -10,11 +11,12 @@
             <ItemTemplate>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-md-7"><b>Titulo: </b><%# DataBinder.Eval(Container.DataItem, "Title") %></div>                        
-                         <div class="col-md-2"><b>Categoria: </b><%# DataBinder.Eval(Container.DataItem, "CategoryName") %></div>
+                        <div class="col-md-7"><b>Titulo: </b><%# DataBinder.Eval(Container.DataItem, "Title") %></div>
                         <div class="col text-right">
                             <asp:LinkButton class="btn btn-secondary" ID="LinkButton1" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"ID")%>' OnClick="VerReceita">Ver</asp:LinkButton>
-                        </div> 
+                            <asp:LinkButton class="btn btn-danger" ID="LinkButton2" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"ID")%>' OnClick="EliminarFavorito">Eliminar Favorito</asp:LinkButton>
+
+                        </div>
                     </div>
                 </li>
             </ItemTemplate>

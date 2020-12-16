@@ -104,16 +104,16 @@ namespace Recipes.Data.Repositories
                 cmd.CommandText = "spRemove_FavouriteRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@RecipeId", id);
+                cmd.Parameters.AddWithValue("@RecipeID", id);
 
                 conn.Open();
 
                 int affectedRows = cmd.ExecuteNonQuery();
 
-                //if (affectedRows != 1)
-                //{
-                //    throw new Exception("Não foi possivel Eliminar");
-                //}
+                if (affectedRows != 1)
+                {
+                    throw new Exception("Não foi possivel Eliminar");
+                }
             }
         }
     }
