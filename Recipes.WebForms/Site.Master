@@ -83,8 +83,8 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="~/receitas/asminhasreceitas.aspx" runat="server">As minhas Receitas</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Receitas Favoritas</a>
-                                            <a class="dropdown-item" href="#">Receitas Classificadas</a>
+                                            <a class="dropdown-item" href="~/receitas/receitasfavoritas.aspx" runat="server">Receitas Favoritas</a>
+                                            <a class="dropdown-item" href="~/receitas/receitasclassificadas.aspx" runat="server">Receitas Classificadas</a>
                                         </div>
                                     </li>
                                 </LoggedInTemplate>
@@ -119,7 +119,7 @@
         </main>
         <footer id="footer" class="page-footer container-fluid text-center navbar-dark bg-dark card-footer font-small text-white">
             <div class="container">
-                <a class="navbar-brand py-4" href="default.aspx">
+                <a class="navbar-brand py-4" href="~/default.aspx" runat="server">
                     <img src="/docs/images/logo_Icon.png" width="60" height="60" class="d-inline-block align-top" alt="">
                     <h3 class="mt-2">Grandpa's Recipes</h3>
                 </a>
@@ -149,7 +149,7 @@
                 </div>
             </div>
             <div class="footer-copyright text-center py-3 text-white">
-                © 2020 Copyright: <a href="default.aspx" style="color: #FFF;">GrandpasRecipes.com</a>
+                © 2020 Copyright: <a href="~/default.aspx" runat="server" style="color: #FFF;">GrandpasRecipes.com</a>
             </div>
         </footer>
     </form>

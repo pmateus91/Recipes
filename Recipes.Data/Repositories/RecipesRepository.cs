@@ -81,6 +81,42 @@ namespace Recipes.Data.Repositories
 
             return temp;
         }
+        public List<Recipe> GetALLFavourite(int id)
+        {
+            List<Recipe> temp = new List<Recipe>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAll_FavouriteRecipe", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserID", id);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                ;
+
+                while (dr.Read())
+                {
+                    Recipe recipe = new Recipe()
+                    {
+                        ID = dr.GetInt32(0),
+                        CategoryID = dr.GetInt32(1),
+                        User = dr.GetInt32(2),
+                        Title = dr.GetString(3),
+                        Duration = dr.GetTimeSpan(4),
+                        Difficulty = (Difficulty)dr.GetInt32(5),
+                        Instructions = dr.GetString(6),
+                        Status = dr.GetBoolean(7),
+                        CategoryName = dr.GetString(9),                        
+                    };
+                    temp.Add(recipe);
+                }
+                conn.Close();
+            }
+
+            return temp;
+        }
 
         public List<Recipe> GetByID(int id)
         {
@@ -145,7 +181,7 @@ namespace Recipes.Data.Repositories
             List<Recipe> temp = new List<Recipe>();
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                SqlCommand cmd = new SqlCommand("spGetALL_RecipeByCategoryID", conn);
+                SqlCommand cmd = new SqlCommand("spGetAll_RecipeByCategoryID", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoryID", id);

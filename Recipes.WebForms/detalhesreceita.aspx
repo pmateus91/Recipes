@@ -11,7 +11,7 @@
                     <asp:Label CssClass="h2" ID="lblTitle" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="form-group col">
-                    <asp:LinkButton class="btn btn-success btn-lg" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">+ Favoritos</asp:LinkButton>
+                    <asp:LinkButton class="btn btn-success btn-lg" ID="btnFavoritos" runat="server" OnClick="Favourite_Click">+ Favoritos</asp:LinkButton>
                 </div>
                 <div class="form-group col text-right">
                     <div class="input-group mb-1">

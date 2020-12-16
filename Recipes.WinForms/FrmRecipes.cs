@@ -2,13 +2,8 @@
 using Recipes.Services.Services;
 using Recipes.Model.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace Recipes.WinForms 
@@ -17,7 +12,7 @@ namespace Recipes.WinForms
     public partial class FrmRecipes : Form
     {
         private Recipes_Services _service;
-        string _title, rowFilter;
+        string rowFilter;
 
         public FrmRecipes(string title)
         {

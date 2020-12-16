@@ -16,15 +16,39 @@ namespace Recipes.WebForms
     {
         private Recipes_Services _service;
         private RecipesIngredients_Services _riService;
+        private FavouriteRecipe_Services _frService;
+        private Users_Services _uService;
         Recipe recipe = new Recipe();
+        User user = new User();
+        FavouriteRecipe favouriteRecipe = new FavouriteRecipe();
         DataTable dt = new DataTable();
-        int id;
+        int id, userId;
+        string _membershipUsername;
+
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             _service = new Recipes_Services();
             _riService = new RecipesIngredients_Services();
+            _frService = new FavouriteRecipe_Services();
+            _uService = new Users_Services();
+
+            _membershipUsername = User.Identity.Name;
+            foreach (User user in _uService.GetALL())
+            {
+                if (_membershipUsername == user.MembershipUsername)
+                {
+                    userId = user.ID;
+                }
+            }
+            foreach (FavouriteRecipe favouriteRecipe in _frService.GetALL(userId))
+            {
+                if (favouriteRecipe.IsFavourite == true)
+                {
+                    btnFavoritos.Visible = false;
+                }
+            }
 
             if (!String.IsNullOrEmpty(Session["ID"].ToString()))
             {
@@ -39,7 +63,9 @@ namespace Recipes.WebForms
                 lblRating.Text = recipe.Rating.ToString();
                 lblUser.Text = recipe.UserName.ToString();
                 lblInstructions.Text = recipe.Instructions.ToString();
+                {
 
+                }
                 CreateDataTable();
                 foreach (RecipeIngredient recipeIngredient in _riService.GetById(id))
                 {
@@ -54,8 +80,8 @@ namespace Recipes.WebForms
                 }
 
 
-            }
-
+            }            
+            
         }
         private void CreateDataTable()
         {           
@@ -64,9 +90,22 @@ namespace Recipes.WebForms
                 dt.Columns.Add("Unidade");           
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void Favourite_Click(object sender, EventArgs e)
         {
-            
+            _membershipUsername = User.Identity.Name;
+            foreach (User user in _uService.GetALL())
+            {
+                if (_membershipUsername == user.MembershipUsername)
+                {
+                    userId = user.ID;
+                }
+            }
+            favouriteRecipe.UserID = userId;
+            favouriteRecipe.RecipeID = id;
+            favouriteRecipe.IsFavourite = true;
+            _frService.Add(favouriteRecipe);
+            Response.Redirect("~/receitas/receitasfavoritas.aspx");
+
         }
     }
 }

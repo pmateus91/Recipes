@@ -11,8 +11,6 @@ namespace Recipes.WinForms
 {
     public partial class FrmRecipesInsert : Form
     {
-        int _id,_categoryID,_ingredientID;
-
         private Recipes_Services _rService;
         private Categories_Services _cService;
         private Ingredients_Services _iService;

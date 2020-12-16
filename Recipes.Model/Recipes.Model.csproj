@@ -47,6 +47,7 @@
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\FavouriteRecipe.cs" />
     <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\RecipeIngredient.cs" />
     <Compile Include="Model\Recipe.cs" />

@@ -12,7 +12,6 @@
                 <div class="col mb-4">
                     <div class="card">
                         <img src="../docs/images/noimage.png" class="card-img">
-
                         <div class="card-body">
                             <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "Title") %></h5>
                             <p class="card-text"><b>Duração:</b> <%# TimeSpan.Parse(DataBinder.Eval(Container.DataItem, "Duration").ToString()).TotalMinutes %> minutos</p>

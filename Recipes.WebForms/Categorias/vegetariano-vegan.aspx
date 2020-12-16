@@ -7,7 +7,7 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3">
         <asp:Repeater runat="server" ID="rptRecipe">
-            <ItemTemplate>
+        <ItemTemplate>
                 <div class="col mb-4">
                     <div class="card">
                         <img src="../docs/images/noimage.png" class="card-img">

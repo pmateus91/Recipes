@@ -91,6 +91,8 @@
     <Content Include="Categorias\acompanhamentos.aspx" />
     <Content Include="Categorias\salada.aspx" />
     <Content Include="Receitas\asminhasreceitas.aspx" />
+    <Content Include="Receitas\receitasfavoritas.aspx" />
+    <Content Include="Receitas\receitasclassificadas.aspx" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Content\brands.css" />
     <Content Include="Content\brands.min.css" />
@@ -271,6 +273,20 @@
     </Compile>
     <Compile Include="Receitas\asminhasreceitas.aspx.designer.cs">
       <DependentUpon>asminhasreceitas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receitas\receitasfavoritas.aspx.cs">
+      <DependentUpon>receitasfavoritas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receitas\receitasfavoritas.aspx.designer.cs">
+      <DependentUpon>receitasfavoritas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receitas\receitasclassificadas.aspx.cs">
+      <DependentUpon>receitasclassificadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receitas\receitasclassificadas.aspx.designer.cs">
+      <DependentUpon>receitasclassificadas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

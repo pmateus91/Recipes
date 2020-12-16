@@ -48,6 +48,10 @@ namespace Recipes.Services.Services
         {
             return _repo.GetRecipeByUserID(id);
         }
+        public List<Recipe> GetALLFavourite(int id)
+        {
+            return _repo.GetALLFavourite(id);
+        }
         public void Add(Recipe recipe)
         {
             recipe.Status = false;

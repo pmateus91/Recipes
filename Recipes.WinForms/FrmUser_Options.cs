@@ -14,8 +14,6 @@ namespace Recipes.WinForms
 {
     public partial class FrmUser_Options : Form
     {
-        FrmUser_InsertUpdate Iu;
-
         private Users_Services _service;
         User user = new User();
         string _title, rowFilter;

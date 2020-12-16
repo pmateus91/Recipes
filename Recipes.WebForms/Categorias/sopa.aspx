@@ -6,7 +6,7 @@
     <div class="jumbotron" style="background-image: url('/docs/images/jumbotron2.jpg'); background-size: cover; background-position: top">
         <h1 class="display-4 text-white font-weight-bold">SOPA</h1>
     </div>
-    <div class="card-deck">
+    <div class="row row-cols-1 row-cols-md-3">
         <asp:Repeater runat="server" ID="rptRecipe">
             <ItemTemplate>
                 <div class="col mb-4">

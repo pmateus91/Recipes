@@ -2,21 +2,12 @@
 using Recipes.Model.Model.Utils;
 using Recipes.Model.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Recipes.WinForms
 {
     public partial class FrmUser_InsertUpdate : Form
     {
-        FrmUser u;
-
         private Users_Services _serviceUsers;
         User user = new User();
         Account account = new Account();
