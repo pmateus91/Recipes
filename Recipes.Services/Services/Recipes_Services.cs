@@ -13,6 +13,8 @@ namespace Recipes.Services.Services
     {
 
         private RecipesRepository _repo;
+        Recipe _recipe = new Recipe();
+
 
         public Recipes_Services()
         {
@@ -25,23 +27,43 @@ namespace Recipes.Services.Services
         {
             return _repo.GetALL();             
         }
-
-        //public List<RecipeIngredient> GetAllProducts()
-        //{
-        //    return _repo.GetAllProducts();
-        //}
-
-        public Recipe GetById(int id)
+        public List<Recipe> GetALLValidated()
         {
-            return _repo.GetById(id);
+            return _repo.GetALLValidated();
+        }
+        public List<Recipe> GetByID(int id)
+        {
+            if (_recipe.Rating.ToString() == null)
+            {
+                _recipe.Rating = 0;
+            }
+            return _repo.GetByID(id);
         }
 
+        public List<Recipe> GetRecipeByCategoryID(int id)
+        {
+            return _repo.GetRecipeByCategoryID(id);
+        }
+        public List<Recipe> GetRecipeByUserID(int id)
+        {
+            return _repo.GetRecipeByUserID(id);
+        }
         public void Add(Recipe recipe)
         {
+            recipe.Status = false;
             _repo.Add(recipe);
         }
 
         public void Update(Recipe recipe)
+        {
+            _repo.Update(recipe);
+        }
+        public void UpdateStatus(Recipe recipe)
+        {
+            _repo.UpdateStatus(recipe);
+        }
+
+        public void UpdateFavourite(Recipe recipe)
         {
             _repo.Update(recipe);
         }

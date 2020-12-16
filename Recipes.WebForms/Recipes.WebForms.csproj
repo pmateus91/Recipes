@@ -44,6 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PMLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_ProjectResources\PMLibrary\PMLibrary\bin\Debug\PMLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,16 +77,88 @@
     <Content Include="Contents\css\bootstrap-reboot.min.css" />
     <Content Include="Contents\css\bootstrap.css" />
     <Content Include="Contents\css\bootstrap.min.css" />
+    <Content Include="Contents\css\main.css" />
     <Content Include="Contents\js\bootstrap.bundle.js" />
     <Content Include="Contents\js\bootstrap.bundle.min.js" />
     <Content Include="Contents\js\bootstrap.js" />
     <Content Include="Contents\js\bootstrap.min.js" />
     <Content Include="Contents\js\jquery-3.5.1.js" />
     <Content Include="Contents\js\popper.min.js" />
+    <Content Include="Account\login.aspx" />
+    <Content Include="Account\create.aspx" />
+    <Content Include="Content\star.png" />
+    <Content Include="detalhesreceita.aspx" />
+    <Content Include="Categorias\acompanhamentos.aspx" />
+    <Content Include="Categorias\salada.aspx" />
+    <Content Include="Receitas\asminhasreceitas.aspx" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
+    <Content Include="Content\fontawesome-all.css" />
+    <Content Include="Content\fontawesome-all.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\LICENSE.txt" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Default.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="receitas.aspx" />
+    <Content Include="Categorias\entradas-petiscos.aspx" />
+    <Content Include="Categorias\sopa.aspx" />
+    <Content Include="Categorias\carne.aspx" />
+    <Content Include="Categorias\peixe.aspx" />
+    <Content Include="Categorias\vegetariano-vegan.aspx" />
+    <Content Include="Categorias\doces-sobremesas.aspx" />
+    <Content Include="criar-receita.aspx" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -91,12 +167,110 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="receitas.aspx.cs">
+      <DependentUpon>receitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="receitas.aspx.designer.cs">
+      <DependentUpon>receitas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\entradas-petiscos.aspx.cs">
+      <DependentUpon>entradas-petiscos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\entradas-petiscos.aspx.designer.cs">
+      <DependentUpon>entradas-petiscos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\sopa.aspx.cs">
+      <DependentUpon>sopa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\sopa.aspx.designer.cs">
+      <DependentUpon>sopa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\carne.aspx.cs">
+      <DependentUpon>carne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\carne.aspx.designer.cs">
+      <DependentUpon>carne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\peixe.aspx.cs">
+      <DependentUpon>peixe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\peixe.aspx.designer.cs">
+      <DependentUpon>peixe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\vegetariano-vegan.aspx.cs">
+      <DependentUpon>vegetariano-vegan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\vegetariano-vegan.aspx.designer.cs">
+      <DependentUpon>vegetariano-vegan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\doces-sobremesas.aspx.cs">
+      <DependentUpon>doces-sobremesas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\doces-sobremesas.aspx.designer.cs">
+      <DependentUpon>doces-sobremesas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="criar-receita.aspx.cs">
+      <DependentUpon>criar-receita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="criar-receita.aspx.designer.cs">
+      <DependentUpon>criar-receita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detalhesreceita.aspx.cs">
+      <DependentUpon>detalhesreceita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detalhesreceita.aspx.designer.cs">
+      <DependentUpon>detalhesreceita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\acompanhamentos.aspx.cs">
+      <DependentUpon>acompanhamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\acompanhamentos.aspx.designer.cs">
+      <DependentUpon>acompanhamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\salada.aspx.cs">
+      <DependentUpon>salada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categorias\salada.aspx.designer.cs">
+      <DependentUpon>salada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receitas\asminhasreceitas.aspx.cs">
+      <DependentUpon>asminhasreceitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receitas\asminhasreceitas.aspx.designer.cs">
+      <DependentUpon>asminhasreceitas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

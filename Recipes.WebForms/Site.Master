@@ -6,6 +6,30 @@
 <head runat="server">
     <title>Grandpa's Recipes</title>
     <link href="/Contents/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/fontawesome.css" rel="stylesheet" />
+    <link href="Contents/css/main.css" rel="stylesheet" />
+    <link href="/Content/brands.css" rel="stylesheet" />
+    <script src="/Contents/js/jquery-3.5.1.js" type="text/javascript"></script>
+    <script src="/Contents/js/popper.min.js"></script>
+    <script src="/Contents/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            // this will get the full URL at the address bar
+            var url = window.location.href;
+            if (url == '') {
+                url = 'Default.aspx';
+            }
+            // passes on every "a" tag
+            $(".navbar-nav a").each(function () {
+                // checks if its the same on the address bar
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                    //for making parent of submenu active
+                    $(this).closest("li").parent().parent().addClass("active");
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -14,40 +38,50 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="~/" runat="server">
+                    <a class="navbar-brand" href="~/default.aspx" runat="server">
                         <img src="/docs/images/logo_Icon.png" width="40" height="40" class="d-inline-block align-top" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <asp:HyperLink ID="HyperLink1" Class="nav-link font-weight-bold" runat="server" NavigateUrl="~/">HOME</asp:HyperLink>
+                            <li class="nav-item">
+                                <asp:HyperLink ID="HyperLink1" class="nav-link font-weight-bold" runat="server" NavigateUrl="~/default.aspx">HOME</asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link font-weight-bold" href="#" runat="server">RECEITAS</a>
+                                <asp:HyperLink ID="HyperLink2" class="nav-link font-weight-bold" runat="server" NavigateUrl="~/receitas.aspx">RECEITAS</asp:HyperLink>
+                                <%--  <a class="nav-link font-weight-bold" href="~/Receitas.aspx" runat="server">RECEITAS</a>--%>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TIPO DE PRATO
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#" runat="server">Entradas e Petiscos</a>
-                                    <a class="dropdown-item" href="#" runat="server">Sopas</a>
-                                    <a class="dropdown-item" href="#" runat="server">Carnes</a>
-                                    <a class="dropdown-item" href="#" runat="server">Peixes</a>
-                                    <a class="dropdown-item" href="#" runat="server">Vegetariana e Vegan</a>
-                                    <a class="dropdown-item" href="#" runat="server">Doces e Sobremesas</a>
+                                    <a class="dropdown-item" href="~/categorias/acompanhamentos.aspx" runat="server">Acompanhamentos</a>
+                                    <a class="dropdown-item" href="~/categorias/entradas-petiscos.aspx" runat="server">Entradas e Petiscos</a>
+                                    <a class="dropdown-item" href="~/categorias/sopa.aspx" runat="server">Sopas</a>
+                                    <a class="dropdown-item" href="~/categorias/salada.aspx" runat="server">Saladas</a>
+                                    <a class="dropdown-item" href="~/categorias/carne.aspx" runat="server">Carnes</a>
+                                    <a class="dropdown-item" href="~/categorias/peixe.aspx" runat="server">Peixes</a>
+                                    <a class="dropdown-item" href="~/categorias/vegetariano-vegan.aspx" runat="server">Vegetariana e Vegan</a>
+                                    <a class="dropdown-item" href="~/categorias/doces-sobremesas.aspx" runat="server">Doces e Sobremesas</a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link font-weight-bold" href="#" runat="server">FAÇA A SUA RECEITA</a>
+                                <asp:LoginView ID="LoginView2" runat="server">
+                                    <AnonymousTemplate>
+                                        <a class="nav-link font-weight-bold" href="~/Account/login.aspx" runat="server">FAÇA A SUA RECEITA</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <a class="nav-link font-weight-bold" href="~/criar-receita.aspx" runat="server">FAÇA A SUA RECEITA</a>
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
                             </li>
                             <asp:LoginView ID="LoginView3" runat="server">
                                 <LoggedInTemplate>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AS MINHAS RECEITAS</a>
+                                        <a class="nav-link font-weight-bold dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AS MINHAS RECEITAS</a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#" runat="server">As minhas Receitas</a>
+                                            <a class="dropdown-item" href="~/receitas/asminhasreceitas.aspx" runat="server">As minhas Receitas</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Receitas Favoritas</a>
                                             <a class="dropdown-item" href="#">Receitas Classificadas</a>
@@ -58,18 +92,19 @@
                         </ul>
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
-                                <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="btn btn-info" />
+                                <asp:LoginStatus class="btn btn-info mr-1" ID="LoginStatus2" runat="server" />
+                                <a class="btn btn-info" href="~/account/create.aspx" runat="server" role="button">Registar</a>
                             </AnonymousTemplate>
                             <LoggedInTemplate>
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Olá <span>
                                             <asp:LoginName ID="LoginName1" runat="server" />
                                         </span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="~/RestrictedArea/PersonalArea.aspx" runat="server">Área pessoal</a>
-                                        <asp:LoginStatus ID="LoginStatus1" CssClass="btn btn-alert" runat="server" />
+                                        <asp:LoginStatus class="dropdown-item" ID="LoginStatus1" runat="server" />
                                     </div>
                                 </div>
                             </LoggedInTemplate>
@@ -78,20 +113,46 @@
                 </div>
             </nav>
         </header>
-        
         <main class="container">
             <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </main>
-        <footer class="container-fluid text-center navbar-dark bg-dark card-footer">
-            <a class="navbar-brand" href="Home.aspx">
-                <img src="/docs/images/logo_Icon.png" width="60" height="60" class="d-inline-block align-top" alt=""></a>
-            <p><b>Copyright &#169;</b></p>
+        <footer id="footer" class="page-footer container-fluid text-center navbar-dark bg-dark card-footer font-small text-white">
+            <div class="container">
+                <a class="navbar-brand py-4" href="default.aspx">
+                    <img src="/docs/images/logo_Icon.png" width="60" height="60" class="d-inline-block align-top" alt="">
+                    <h3 class="mt-2">Grandpa's Recipes</h3>
+                </a>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        <div class="mb-3 flex-center">
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f fa-lg text-white mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter fa-lg text-white mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                            <a class="gplus-ic">
+                                <i class="fab fa-google-plus-g fa-lg text-white mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                            <a class="li-ic">
+                                <i class="fab fa-linkedin-in fa-lg text-white mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram fa-lg text-white mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                            <a class="pin-ic">
+                                <i class="fab fa-pinterest fa-lg text-white fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3 text-white">
+                © 2020 Copyright: <a href="default.aspx" style="color: #FFF;">GrandpasRecipes.com</a>
+            </div>
         </footer>
     </form>
-    <script src="/Contents/js/jquery-3.5.1.js"></script>
-    <script src="/Contents/js/popper.min.js"></script>
-    <script src="/Contents/js/bootstrap.js"></script>
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </body>

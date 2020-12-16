@@ -21,6 +21,11 @@ namespace Recipes.Services.Services
             _repoRecipeIngredients.Add(recipeIngredient);
         }
 
+        public List<RecipeIngredient> GetById(int id)
+        {
+           return _repoRecipeIngredients.GetById(id);
+        }
+
     }
 
 }

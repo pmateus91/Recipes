@@ -15,165 +15,21 @@ namespace Recipes.WebForms
     {
 
         /// <summary>
-        /// CategoryTitleLbl1 control.
+        /// LoginView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl1;
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
 
         /// <summary>
-        /// CategoryDescriptionLbl1 control.
+        /// rptCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl1;
-
-        /// <summary>
-        /// CategoryBtn1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn1;
-
-        /// <summary>
-        /// CategoryTitleLbl2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl2;
-
-        /// <summary>
-        /// CategoryDescriptionLbl2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl2;
-
-        /// <summary>
-        /// CategoryBtn2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn2;
-
-        /// <summary>
-        /// CategoryTitleLbl3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl3;
-
-        /// <summary>
-        /// CategoryDescriptionLbl3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl3;
-
-        /// <summary>
-        /// CategoryBtn3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn3;
-
-        /// <summary>
-        /// CategoryTitleLbl4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl4;
-
-        /// <summary>
-        /// CategoryDescriptionLbl4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl4;
-
-        /// <summary>
-        /// CategoryBtn4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn4;
-
-        /// <summary>
-        /// CategoryTitleLbl5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl5;
-
-        /// <summary>
-        /// CategoryDescriptionLbl5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl5;
-
-        /// <summary>
-        /// CategoryBtn5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn5;
-
-        /// <summary>
-        /// CategoryTitleLbl6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryTitleLbl6;
-
-        /// <summary>
-        /// CategoryDescriptionLbl6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryDescriptionLbl6;
-
-        /// <summary>
-        /// CategoryBtn6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CategoryBtn6;
+        protected global::System.Web.UI.WebControls.Repeater rptCategory;
     }
 }

@@ -45,7 +45,6 @@ namespace Recipes.WinForms
                 user.FirstName = tbFirstName.Text;
                 user.LastName = tbLastName.Text;
                 user.Address = tbAdress.Text;
-                user.Email = tbEmail.Text;
                 user.IsAdmin = cbIsAdmin.Checked;
                 user.IsBlocked = false;
                 account.Username = tbUserName.Text;
@@ -58,7 +57,7 @@ namespace Recipes.WinForms
                     {
                         if (tbPassword.Text == tbConfirmPassword.Text)
                         {
-                            _serviceUsers.Add(user, account);
+                            //_serviceUsers.Add(user, account);
                             MessageBox.Show("Inserido com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
@@ -101,13 +100,12 @@ namespace Recipes.WinForms
                 tbFirstName.Text = _serviceUsers.GetById(_id).FirstName;
                 tbLastName.Text = _serviceUsers.GetById(_id).LastName;
                 tbAdress.Text = _serviceUsers.GetById(_id).Address;
-                tbEmail.Text = _serviceUsers.GetById(_id).Email;
                 cbIsAdmin.Checked = _serviceUsers.GetById(_id).IsAdmin;
                 cbGender.Text = gender;
-                account.AccountID = _serviceUsers.GetById(_id).Account.AccountID;
-                tbUserName.Text = _serviceUsers.GetById(_id).Account.Username;
-                tbPassword.Text = _serviceUsers.GetById(_id).Account.Password;
-                tbConfirmPassword.Text = _serviceUsers.GetById(_id).Account.Password;
+                //account.AccountID = _serviceUsers.GetById(_id).Account.AccountID;
+                //tbUserName.Text = _serviceUsers.GetById(_id).Account.Username;
+                //tbPassword.Text = _serviceUsers.GetById(_id).Account.Password;
+                //tbConfirmPassword.Text = _serviceUsers.GetById(_id).Account.Password;
             }
         }
 

@@ -41,5 +41,34 @@ namespace Recipes.Data.Repositories
                 }
             }
         }
+
+        public List<RecipeIngredient> GetById(int id)
+        {
+            List<RecipeIngredient> temp = new List<RecipeIngredient>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetById_RecipeIngredient", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RecipeID", id);
+
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    RecipeIngredient recipeIngredient = new RecipeIngredient()
+                    {
+                        IngredientName = dr["IngredientName"].ToString(),                     
+                        Quantity = Convert.ToInt32(dr["Quantity"].ToString()),
+                        Unit = dr["Unit"].ToString()
+                    };
+                    temp.Add(recipeIngredient);
+                }
+                conn.Close();
+            }
+            return temp;
+        }
+
     }
 }

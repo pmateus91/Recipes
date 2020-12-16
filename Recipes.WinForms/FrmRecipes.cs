@@ -17,10 +17,13 @@ namespace Recipes.WinForms
     public partial class FrmRecipes : Form
     {
         private Recipes_Services _service;
-        public FrmRecipes()
+        string _title, rowFilter;
+
+        public FrmRecipes(string title)
         {
             InitializeComponent();
             _service = new Recipes_Services();
+
         }
 
         private void FrmRecipes_Load(object sender, EventArgs e)
@@ -31,7 +34,7 @@ namespace Recipes.WinForms
         private void gvResultRecepies_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //aqui abrimos o form detalhe da receita
-            FrmRecipesDetails frmRecipesDetails = new FrmRecipesDetails(Convert.ToInt32(gvResultRecepies.CurrentRow.Cells["ProductID"].Value));
+            FrmRecipesDetails frmRecipesDetails = new FrmRecipesDetails(Convert.ToInt32(gvResultRecepies.CurrentRow.Cells["ID"].Value));
             frmRecipesDetails.ShowDialog();
             frmRecipesDetails.BringToFront();
 
@@ -39,7 +42,13 @@ namespace Recipes.WinForms
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
+            if (gvResultRecepies.Rows.Count >= 0)
+            {
+                rowFilter = "";
+                rowFilter += string.Format("Title LIKE '%{0}%'", tbSearch.Text);
 
+                (gvResultRecepies.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+            }
         }
 
         #region METHODS DATAGRIDVIEW
@@ -47,27 +56,23 @@ namespace Recipes.WinForms
         {
             DataTable dt = ConvertListToDataTable.ConvertTo<Recipe>(_service.GetALL());
             gvResultRecepies.DataSource = dt;
-            //VisualAspectGrid();
+            VisualAspectGrid();
         }
 
         private void VisualAspectGrid()
         {
-            //if (gvResultRecepies.Rows.Count > 0)
-            //{
-            //    gvResultUsers.Columns[$"UserID"].Visible = false;
-            //    gvResultUsers.Columns[$"AccountID"].Visible = false;
-            //    gvResultUsers.Columns[$"AccountID1"].Visible = false;
-            //    gvResultUsers.Columns[$"Gender"].Visible = false;
-            //    gvResultUsers.Columns[$"Address"].Visible = false;
-            //    gvResultUsers.Columns[$"isBlocked"].HeaderText = "Bloqueado";
-            //    gvResultUsers.Columns[$"isAdmin"].Visible = false;
-            //    gvResultUsers.Columns[$"Password"].Visible = false;
-            //    gvResultUsers.Columns["FirstName"].HeaderText = "Primeiro Nome";
-            //    gvResultUsers.Columns["LastName"].HeaderText = "Último Nome";
-            //    gvResultUsers.Columns["Username"].HeaderText = "UserName";
-            //    gvResultUsers.Columns["Username"].DisplayIndex = 4;
-            //    gvResultUsers.Columns["Email"].Width = 300;
-            //}
+            if (gvResultRecepies.Rows.Count > 0)
+            {
+                gvResultRecepies.Columns[$"ID"].Visible = false;
+                gvResultRecepies.Columns[$"CategoryID"].Visible = false;
+                gvResultRecepies.Columns[$"User"].Visible = false;
+                gvResultRecepies.Columns[$"CategoryName"].HeaderText = "Categoria";
+                gvResultRecepies.Columns[$"CategoryName"].DisplayIndex = 2;
+                gvResultRecepies.Columns[$"Duration"].HeaderText = "Duração";
+                gvResultRecepies.Columns[$"Difficulty"].HeaderText = "Dificuldade";
+                gvResultRecepies.Columns[$"Status"].HeaderText = "Validado";
+                gvResultRecepies.Columns[$"Title"].HeaderText = "Titulo";                
+            }
         }
         #endregion
     }

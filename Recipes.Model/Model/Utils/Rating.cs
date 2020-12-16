@@ -8,7 +8,7 @@ namespace Recipes.Model.Model.Utils
 {
     public enum Rating : byte
     {
-        StarZero = 0,
+        NoRatingYet = 0,
         StarOne = 1,
         StarTwo = 2,
         StarThree = 3,

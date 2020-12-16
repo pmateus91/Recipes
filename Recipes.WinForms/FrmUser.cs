@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Recipes.Model.Model.Utils;
 
 namespace Recipes.WinForms
 {
@@ -17,6 +18,7 @@ namespace Recipes.WinForms
     {
         private Users_Services _service;
         string _title, rowFilter;
+
 
 
         public FrmUser(string titulo)
@@ -35,14 +37,14 @@ namespace Recipes.WinForms
             {
                 rowFilter = "";
                 rowFilter += string.Format("Username LIKE '%{0}%'" + " OR FirstName LIKE '%{0}%'" + " OR LastName LIKE '%{0}%'", tbSearch.Text);
-                (gvResultUsers.DataSource as DataTable).DefaultView.RowFilter = rowFilter;            
+                (gvResultUsers.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
             }
         }
 
         #region METHODS DATAGRIDVIEW
         private void FillGrid()
         {
-            DataTable dt = _service.getUserDataTable;
+            DataTable dt = ConvertListToDataTable.ConvertTo<User>(_service.GetALL());
             gvResultUsers.DataSource = dt;
             VisualAspectGrid();
         }
@@ -51,25 +53,18 @@ namespace Recipes.WinForms
         {
             if (gvResultUsers.Rows.Count > 0)
             {
-                gvResultUsers.Columns[$"UserID"].Visible = false;
-                gvResultUsers.Columns[$"AccountID"].Visible = false;
-                gvResultUsers.Columns[$"AccountID1"].Visible = false;
-                gvResultUsers.Columns[$"Gender"].Visible = false;
+                gvResultUsers.Columns[$"ID"].Visible = false;
                 gvResultUsers.Columns[$"Address"].Visible = false;
+                gvResultUsers.Columns[$"Gender"].Visible = false;
                 gvResultUsers.Columns[$"isBlocked"].HeaderText = "Bloqueado";
-                gvResultUsers.Columns[$"isAdmin"].Visible = false;
-                gvResultUsers.Columns[$"Password"].Visible = false;
+                gvResultUsers.Columns[$"isAdmin"].HeaderText = "Administrador";
                 gvResultUsers.Columns["FirstName"].HeaderText = "Primeiro Nome";
                 gvResultUsers.Columns["LastName"].HeaderText = "Último Nome";
-                gvResultUsers.Columns["Username"].HeaderText = "UserName";
-                gvResultUsers.Columns["Username"].DisplayIndex = 4;
-                gvResultUsers.Columns["Email"].Width = 300;
+                gvResultUsers.Columns["MembershipUsername"].HeaderText = "Username";
+                gvResultUsers.Columns["MembershipUsername"].DisplayIndex = 4;
             }
         }
         #endregion
 
-
     }
-
-
 }

@@ -18,7 +18,9 @@ namespace Recipes.Model.Model
         public string Instructions { get; set; }
         public bool Status { get; set; }
         public int User { get; set; }
-        public int Category { get; set; }
+        public string UserName { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
         public List<Comment> Comment { get; set; }
         public List<Ingredient> Ingredient { get; set; }
     }

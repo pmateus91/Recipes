@@ -19,9 +19,7 @@ namespace Recipes.Data.Repositories
 
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
-                SqlCommand cmd = new SqlCommand("spGetAll_Recepie", conn);
-                //SqlCommand cmd = conn.CreateCommand();
-                //cmd.CommandText = "spSearchRecipe";
+                SqlCommand cmd = new SqlCommand("spGetAll_Recipe", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 conn.Open();
@@ -32,7 +30,136 @@ namespace Recipes.Data.Repositories
                     Recipe recipe = new Recipe()
                     {
                         ID = dr.GetInt32(0),
-                        Category = dr.GetInt32(1),
+                        CategoryID = dr.GetInt32(1),
+                        User = dr.GetInt32(2),
+                        Title = dr.GetString(3),
+                        Duration = dr.GetTimeSpan(4),
+                        Difficulty = (Difficulty)dr.GetInt32(5),
+                        Instructions = dr.GetString(6),
+                        Status = dr.GetBoolean(7),
+                        CategoryName = dr.GetString(9),
+                        UserName = dr.GetString(19)
+                    };
+                    temp.Add(recipe);
+                }
+                conn.Close();
+            }
+
+            return temp;
+        }
+        public List<Recipe> GetALLValidated()
+        {
+            List<Recipe> temp = new List<Recipe>();
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAll_RecipeValidated", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Recipe recipe = new Recipe()
+                    {
+                        ID = dr.GetInt32(0),
+                        CategoryID = dr.GetInt32(1),
+                        User = dr.GetInt32(2),
+                        Title = dr.GetString(3),
+                        Duration = dr.GetTimeSpan(4),
+                        Difficulty = (Difficulty)dr.GetInt32(5),
+                        Instructions = dr.GetString(6),
+                        Status = dr.GetBoolean(7),
+                        CategoryName = dr.GetString(9),
+                        UserName = dr.GetString(19)
+                    };
+                    temp.Add(recipe);
+                }
+                conn.Close();
+            }
+
+            return temp;
+        }
+
+        public List<Recipe> GetByID(int id)
+        {
+
+            List<Recipe> temp = new List<Recipe>();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetById_Recipe", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RecipeID", id);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    if (dr.IsDBNull(dr.GetOrdinal("Rating")))
+                    {
+                        Recipe recipe = new Recipe()
+                        {
+                            Title = dr["Title"].ToString(),
+                            Duration = TimeSpan.Parse(dr["Duration"].ToString()),
+                            Difficulty = (Difficulty)Convert.ToInt32(dr["Difficulty"].ToString()),
+                            Instructions = dr["Instructions"].ToString(),
+                            CategoryID = Convert.ToInt32(dr["CategoryID"].ToString()),
+                            CategoryName = dr["CategoryName"].ToString(),
+                            User = Convert.ToInt32(dr["UserID"].ToString()),
+                            Rating = 0,
+                            UserName = dr["MembershipUsername"].ToString()
+                        };
+
+                        temp.Add(recipe);
+                    }
+                    else
+                    {
+                        Recipe recipe = new Recipe()
+                        {
+                            Title = dr["Title"].ToString(),
+                            Duration = TimeSpan.Parse(dr["Duration"].ToString()),
+                            Difficulty = (Difficulty)Convert.ToInt32(dr["Difficulty"].ToString()),
+                            Instructions = dr["Instructions"].ToString(),
+                            CategoryID = Convert.ToInt32(dr["CategoryID"].ToString()),
+                            CategoryName = dr["CategoryName"].ToString(),
+                            User = Convert.ToInt32(dr["UserID"].ToString()),
+                            Rating = (Rating)Convert.ToInt32(dr["Rating"].ToString()),
+                            UserName = dr["MembershipUsername"].ToString()
+                        };
+                        temp.Add(recipe);
+                    }
+                }
+                conn.Close();
+            }
+
+            return temp;
+        }
+
+        public List<Recipe> GetRecipeByCategoryID(int id)
+        {
+
+            List<Recipe> temp = new List<Recipe>();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetALL_RecipeByCategoryID", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CategoryID", id);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Recipe recipe = new Recipe()
+                    {
+                        ID = dr.GetInt32(0),
+                        CategoryID = dr.GetInt32(1),
                         User = dr.GetInt32(2),
                         Title = dr.GetString(3),
                         Duration = dr.GetTimeSpan(4),
@@ -44,14 +171,43 @@ namespace Recipes.Data.Repositories
                 }
                 conn.Close();
             }
-            
+
             return temp;
         }
-
-
-        public Recipe GetById(int id)
+        public List<Recipe> GetRecipeByUserID(int id)
         {
-            return null;
+
+            List<Recipe> temp = new List<Recipe>();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetALL_RecipeByUserID", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserID", id);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Recipe recipe = new Recipe()
+                    {
+                        ID = dr.GetInt32(0),
+                        CategoryID = dr.GetInt32(1),
+                        User = dr.GetInt32(2),
+                        Title = dr.GetString(3),
+                        Duration = dr.GetTimeSpan(4),
+                        Difficulty = (Difficulty)dr.GetInt32(5),
+                        Instructions = dr.GetString(6),
+                        Status = dr.GetBoolean(7)
+                    };
+                    temp.Add(recipe);
+                }
+                conn.Close();
+            }
+
+            return temp;
         }
 
         public void Add(Recipe recipe)
@@ -63,14 +219,14 @@ namespace Recipes.Data.Repositories
                 cmd.CommandText = "spInsert_Recipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@CategoryID", recipe.Category);
-                cmd.Parameters.AddWithValue("@UserID", 1);
+                cmd.Parameters.AddWithValue("@CategoryID", recipe.CategoryID);
+                cmd.Parameters.AddWithValue("@UserID", recipe.User);
                 cmd.Parameters.AddWithValue("@Title", recipe.Title);
                 cmd.Parameters.AddWithValue("@Duration", recipe.Duration);
                 cmd.Parameters.AddWithValue("@Difficulty", recipe.Difficulty);
                 cmd.Parameters.AddWithValue("@Instructions", recipe.Instructions);
                 cmd.Parameters.AddWithValue("@Status", recipe.Status);
-              
+
                 // output
                 SqlParameter idParam = new SqlParameter();
                 idParam.ParameterName = "@RecipeID";
@@ -106,7 +262,7 @@ namespace Recipes.Data.Repositories
                 cmd.CommandText = "spUpdateRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@CategoryID", recipe.Category);
+                cmd.Parameters.AddWithValue("@CategoryID", recipe.CategoryID);
                 cmd.Parameters.AddWithValue("@IngredientsID", recipe.Ingredient);
                 cmd.Parameters.AddWithValue("@UserID", recipe.User);
                 cmd.Parameters.AddWithValue("@Title", recipe.Title);
@@ -125,13 +281,35 @@ namespace Recipes.Data.Repositories
                 }
             }
         }
+
+        public void UpdateStatus(Recipe recipe)
+        {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = conn.CreateCommand();
+
+                cmd.CommandText = "spUpdateRecipeStatus";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RecipeID", recipe.ID);
+                cmd.Parameters.AddWithValue("@Status", recipe.Status);
+
+                conn.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                if (affectedRows != 1)
+                {
+                    throw new Exception("Não foi possivel alterar os dados");
+                }
+            }
+        }
         public void Remove(int id)
         {
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
                 SqlCommand cmd = conn.CreateCommand();
 
-                cmd.CommandText = "spRemoveRecipe";
+                cmd.CommandText = "spRemove_Recipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@RecipeId", id);
@@ -140,39 +318,14 @@ namespace Recipes.Data.Repositories
 
                 int affectedRows = cmd.ExecuteNonQuery();
 
-                if (affectedRows != 1)
-                {
-                    throw new Exception("Não foi possivel Eliminar");
-                }
+                //if (affectedRows != 1)
+                //{
+                //    throw new Exception("Não foi possivel Eliminar");
+                //}
             }
-
         }
 
-        //public List<RecipeIngredient> GetAllProducts()
-        //{
-        //    List<RecipeIngredient> temp = new List<RecipeIngredient>();
 
-        //    using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conNorth))
-        //    {
-        //        SqlCommand cmd = new SqlCommand("uspGetAll", conn);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        conn.Open();
-        //        SqlDataReader dr = cmd.ExecuteReader();
-
-        //        while (dr.Read())
-        //        {
-        //            RecipeIngredient product = new RecipeIngredient()
-        //            {
-        //                productID = Convert.ToInt32(dr["ProductID"].ToString()),
-        //                supplierID = Convert.ToInt32(dr["SupplierID"].ToString()),
-        //                productName = dr["ProductName"].ToString(),
-        //                categoryId = Convert.ToInt32(dr["CategoryID"].ToString())
-        //            };
-        //            temp.Add(product);
-        //        }
-        //    }
-        //    return temp;
-        //}
 
         public DataTable GetRecipeDataTable()
         {

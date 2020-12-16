@@ -29,18 +29,17 @@ namespace Recipes.Data.Repositories
                 {
                     Account account = new Account();
                     User user = new User()
-                    {                        
+                    {
                         ID = dr.GetInt32(0),
-                        FirstName = dr.GetString(2),
-                        LastName = dr.GetString(3),
-                        Gender = (Gender)dr.GetByte(4),
-                        Email = dr.GetString(5),
-                        Address = dr.GetString(6),
-                        IsAdmin = dr.GetBoolean(7),
-                        IsBlocked = dr.GetBoolean(8)
-                };
-                    user.Account = account;
-                    user.Account.Username = dr.GetString(10);
+                        FirstName = dr.GetString(1),
+                        LastName = dr.GetString(2),
+                        Gender = (Gender)dr.GetByte(3),
+                        Address = dr.GetString(4),
+                        IsAdmin = dr.GetBoolean(5),
+                        IsBlocked = dr.GetBoolean(6),
+                        MembershipUsername = dr.GetString(7)
+
+                    };                 
 
                     temp.Add(user);
                 }
@@ -55,14 +54,14 @@ namespace Recipes.Data.Repositories
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
                 SqlCommand cmd = new SqlCommand("spGetById_User", conn);
-                
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@UserID", id);
 
                 conn.Open();
 
                 SqlDataReader dr = cmd.ExecuteReader();
-                
+
                 while (dr.Read())
                 {
                     user = new User()
@@ -71,7 +70,6 @@ namespace Recipes.Data.Repositories
                         FirstName = dr.GetString(2),
                         LastName = dr.GetString(3),
                         Gender = (Gender)dr.GetByte(4),
-                        Email = dr.GetString(5),
                         Address = dr.GetString(6),
                         IsAdmin = dr.GetBoolean(7),
                         IsBlocked = dr.GetBoolean(8),
@@ -79,33 +77,97 @@ namespace Recipes.Data.Repositories
                         //Username = dr.GetString(10),
                         //Password = dr.GetString(11)                        
                     };
-                    user.Account = new Account();
-                    ////user.Account = account;
-                    user.Account.AccountID = dr.GetInt32(9);
-                    user.Account.Username = dr.GetString(10);
-                    user.Account.Password = dr.GetString(11);
+                    //user.Account = new Account();
+                    //////user.Account = account;
+                    //user.Account.AccountID = dr.GetInt32(9);
+                    //user.Account.Username = dr.GetString(10);
+                    //user.Account.Password = dr.GetString(11);
                 }
-               return user;  
+                return user;
             }
         }
 
-        public void Add(User user, Account account)
+        public User GetByUserMembership(string membershipUsername)
+        {
+            User user = null;
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+            {
+                SqlCommand cmd = new SqlCommand("spGetByMembershipUsername_User", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MembershipUsername", membershipUsername);
+
+                conn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    user = new User()
+                    {
+                        ID = dr.GetInt32(0),
+                        FirstName = dr.GetString(1),
+                        LastName = dr.GetString(2),
+                        Gender = (Gender)dr.GetByte(3),
+                        Address = dr.GetString(4),
+                        IsAdmin = dr.GetBoolean(5),
+                        IsBlocked = dr.GetBoolean(6),
+                        MembershipUsername = dr.GetString(7)                                         
+                    };
+                }
+                return user;
+            }
+        }
+
+        //public void Add(User user, Account account)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
+        //    {
+        //        SqlCommand cmd = conn.CreateCommand();
+        //        cmd.CommandText = "spInsert_User_Account";
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        cmd.Parameters.AddWithValue("@Username", account.Username);
+        //        cmd.Parameters.AddWithValue("@Password", account.Password);
+        //        cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+        //        cmd.Parameters.AddWithValue("@LastName", user.LastName);
+        //        cmd.Parameters.AddWithValue("@Gender", user.Gender);
+        //        cmd.Parameters.AddWithValue("@Address", user.Address);
+        //        cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
+        //        cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
+
+        //        conn.Open();
+
+        //        try
+        //        {
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        catch (SqlException)
+        //        {
+        //            throw new Exception("Não foi possivel inserir");
+        //        }
+        //        finally
+        //        {
+        //            conn.Close();
+        //        }
+        //    }
+        //}
+
+        public void Add(User user)
         {
             using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "spInsert_User_Account";
+                cmd.CommandText = "spInsert_User";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Username", account.Username);
-                cmd.Parameters.AddWithValue("@Password", account.Password);
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
-                cmd.Parameters.AddWithValue("@Gender", user.Gender);
-                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);              
                 cmd.Parameters.AddWithValue("@Address", user.Address);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
                 cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
+                cmd.Parameters.AddWithValue("@MembershipUsername", user.MembershipUsername);
 
                 conn.Open();
 
@@ -113,7 +175,7 @@ namespace Recipes.Data.Repositories
                 {
                     cmd.ExecuteNonQuery();
                 }
-                catch (SqlException)
+                catch (Exception)
                 {
                     throw new Exception("Não foi possivel inserir");
                 }
@@ -137,7 +199,7 @@ namespace Recipes.Data.Repositories
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
                 cmd.Parameters.AddWithValue("@Gender", user.Gender);
-                cmd.Parameters.AddWithValue("@Email", user.Email);
+                //cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@Address", user.Address);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
                 cmd.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
@@ -208,7 +270,7 @@ namespace Recipes.Data.Repositories
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
                     da.Fill(dt);
-                }            
+                }
                 conn.Close();
             }
             return dt;

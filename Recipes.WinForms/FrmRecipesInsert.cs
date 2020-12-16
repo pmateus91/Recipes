@@ -20,7 +20,7 @@ namespace Recipes.WinForms
         Recipe recipe = new Recipe();
 
         DataTable dtInsertIngredients = new DataTable();
-        public FrmRecipesInsert()
+        public FrmRecipesInsert(bool isInsert, int id = 0)
         {
             InitializeComponent();
             _rService = new Recipes_Services();
@@ -60,7 +60,7 @@ namespace Recipes.WinForms
             Category category = (Category)cbCategory.SelectedItem;
 
             recipe.Title = tbName.Text;
-            recipe.Category = category.ID;
+            recipe.CategoryID = category.ID;
             recipe.Difficulty = (Difficulty)cbDifficulty.SelectedItem;
             recipe.Duration = TimeSpan.FromMinutes(minutes);
             recipe.Instructions = tbInstructions.Text;

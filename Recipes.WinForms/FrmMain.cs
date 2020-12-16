@@ -16,6 +16,7 @@ namespace Recipes.WinForms
 
         private bool closeSentinel = false;
         FrmRecipes frmRecipes;
+        FrmRecipes_Options frmRecipes_Options;
         FrmIngredients frmIngredients;
         FrmIngredients_Options frmIngredients_Options;
         FrmCategories frmCategories;
@@ -48,13 +49,29 @@ namespace Recipes.WinForms
 
         private void consultarReceitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmRecipes>().Count() == 0)
-                frmRecipes = new FrmRecipes();
-            frmRecipes.MdiParent = this;
-            frmRecipes.WindowState = FormWindowState.Maximized;
-            frmRecipes.Show();
-            frmRecipes.BringToFront();
+            OpenFrmReceitas();
 
+        }
+        private void inserirReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRecipesInsert frmRecipesInsert = new FrmRecipesInsert(true);
+            frmRecipesInsert.ShowDialog();
+            OpenFrmReceitas();
+        }
+
+        private void validarReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFrmReceitas_Options("Receitas - Validar");
+
+        }
+        private void alterarReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFrmReceitas_Options("Receitas - Alterar");
+        }
+
+        private void eliminarReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFrmReceitas_Options("Receitas - Eliminar");
         }
 
         #endregion MENU - Receitas
@@ -245,11 +262,34 @@ namespace Recipes.WinForms
 
         private void OpenFrmReceitas()
         {
-
+            if (Application.OpenForms.OfType<FrmRecipes>().Count() > 0)
+            {
+                frmRecipes.Close();
+            }
+            if (Application.OpenForms.OfType<FrmRecipes>().Count() == 0)
+            {
+                frmRecipes = new FrmRecipes("Receitas - Consultar");
+            }
+            frmRecipes.MdiParent = this;
+            frmRecipes.WindowState = FormWindowState.Maximized;
+            frmRecipes.Show();
+            frmRecipes.BringToFront();
         }
         private void OpenFrmReceitas_Options(string title)
         {
+            if (Application.OpenForms.OfType<FrmRecipes_Options>().Count() > 0)
+            {
+                frmRecipes_Options.Close();
+            }
+            if (Application.OpenForms.OfType<FrmRecipes_Options>().Count() == 0)
+            {
+                frmRecipes_Options = new FrmRecipes_Options(title);
+            }
 
+            frmRecipes_Options.MdiParent = this;
+            frmRecipes_Options.WindowState = FormWindowState.Maximized;
+            frmRecipes_Options.Show();
+            frmRecipes_Options.BringToFront();
         }
 
         private void OpenFrmCategories()
@@ -348,11 +388,7 @@ namespace Recipes.WinForms
 
         #endregion METHODS       
 
-        private void inserirReceitasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmRecipesInsert frmRecipesInsert = new FrmRecipesInsert();
-            frmRecipesInsert.Show();
-        }
+        
     }
 
 }

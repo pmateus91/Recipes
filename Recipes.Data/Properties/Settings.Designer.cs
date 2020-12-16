@@ -32,15 +32,5 @@ namespace Recipes.Data.Properties {
                 return ((string)(this["conStr"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source =.\\SQLEXPRESS; database=Northwind; integrated security = true;")]
-        public string conNorth {
-            get {
-                return ((string)(this["conNorth"]));
-            }
-        }
     }
 }

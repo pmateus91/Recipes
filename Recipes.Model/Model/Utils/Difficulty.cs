@@ -8,8 +8,8 @@ namespace Recipes.Model.Model.Utils
 {
     public enum Difficulty : byte
     {
-        Fácil = 1,
-        Média = 2,
-        Difícil = 3
+        Fácil = 0,
+        Média = 1,
+        Difícil = 2
     }
 }
