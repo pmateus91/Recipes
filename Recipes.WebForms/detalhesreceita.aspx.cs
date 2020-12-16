@@ -34,21 +34,7 @@ namespace Recipes.WebForms
             _frService = new FavouriteRecipe_Services();
             _uService = new Users_Services();
 
-            _membershipUsername = User.Identity.Name;
-            foreach (User user in _uService.GetALL())
-            {
-                if (_membershipUsername == user.MembershipUsername)
-                {
-                    userId = user.ID;
-                }
-            }
-            foreach (FavouriteRecipe favouriteRecipe in _frService.GetALL(userId))
-            {
-                if (favouriteRecipe.IsFavourite == true)
-                {
-                    btnFavoritos.Visible = false;
-                }
-            }
+           
 
             if (!String.IsNullOrEmpty(Session["ID"].ToString()))
             {
@@ -80,8 +66,29 @@ namespace Recipes.WebForms
                 }
 
 
-            }            
-            
+            }
+            _membershipUsername = User.Identity.Name;
+            foreach (User user in _uService.GetALL())
+            {
+                if (_membershipUsername == user.MembershipUsername)
+                {
+                    userId = user.ID;
+                }
+            }
+            foreach (FavouriteRecipe favouriteRecipe in _frService.GetALL(userId))
+            {
+                if (favouriteRecipe.RecipeID == id)
+                {
+                    if (favouriteRecipe.IsFavourite == true)
+                    {
+                        btnFavoritos.Visible = false;
+                    }
+                    else
+                    {
+                        btnFavoritos.Visible = true;
+                    }
+                }
+            }
         }
         private void CreateDataTable()
         {           
